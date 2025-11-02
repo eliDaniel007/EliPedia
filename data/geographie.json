@@ -1,0 +1,547 @@
+{
+  "category": "Géographie",
+  "lists": [
+    {
+      "name": "Pays d'Afrique",
+      "description": "Les 54 pays reconnus du continent africain selon l'Union Africaine",
+      "items": [
+        {
+          "name": "Afrique du Sud",
+          "metadata": {
+            "capital": "Pretoria",
+            "population": 60000000,
+            "region": "Afrique australe"
+          }
+        },
+        {
+          "name": "Algérie",
+          "metadata": {
+            "capital": "Alger",
+            "population": 44000000,
+            "region": "Afrique du Nord"
+          }
+        },
+        {
+          "name": "Angola",
+          "metadata": {
+            "capital": "Luanda",
+            "population": 32000000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
+          "name": "Bénin",
+          "metadata": {
+            "capital": "Porto-Novo",
+            "population": 13000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Botswana",
+          "metadata": {
+            "capital": "Gaborone",
+            "population": 2500000,
+            "region": "Afrique australe"
+          }
+        },
+        {
+          "name": "Burkina Faso",
+          "metadata": {
+            "capital": "Ouagadougou",
+            "population": 22000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Burundi",
+          "metadata": {
+            "capital": "Gitega",
+            "population": 13000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Cameroun",
+          "metadata": {
+            "capital": "Yaoundé",
+            "population": 27000000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
+          "name": "Cap-Vert",
+          "metadata": {
+            "capital": "Praia",
+            "population": 580000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "République centrafricaine",
+          "metadata": {
+            "capital": "Bangui",
+            "population": 5500000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
+          "name": "Tchad",
+          "metadata": {
+            "capital": "N'Djamena",
+            "population": 17000000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
+          "name": "Comores",
+          "metadata": {
+            "capital": "Moroni",
+            "population": 900000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "République du Congo",
+          "metadata": {
+            "capital": "Brazzaville",
+            "population": 5500000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
+          "name": "RD Congo",
+          "metadata": {
+            "capital": "Kinshasa",
+            "population": 100000000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
+          "name": "Côte d'Ivoire",
+          "metadata": {
+            "capital": "Yamoussoukro",
+            "population": 28000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Djibouti",
+          "metadata": {
+            "capital": "Djibouti",
+            "population": 1000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Égypte",
+          "metadata": {
+            "capital": "Le Caire",
+            "population": 104000000,
+            "region": "Afrique du Nord"
+          }
+        },
+        {
+          "name": "Guinée équatoriale",
+          "metadata": {
+            "capital": "Malabo",
+            "population": 1500000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
+          "name": "Érythrée",
+          "metadata": {
+            "capital": "Asmara",
+            "population": 6000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Eswatini",
+          "metadata": {
+            "capital": "Mbabane",
+            "population": 1200000,
+            "region": "Afrique australe"
+          }
+        },
+        {
+          "name": "Éthiopie",
+          "metadata": {
+            "capital": "Addis-Abeba",
+            "population": 120000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Gabon",
+          "metadata": {
+            "capital": "Libreville",
+            "population": 2300000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
+          "name": "Gambie",
+          "metadata": {
+            "capital": "Banjul",
+            "population": 2500000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Ghana",
+          "metadata": {
+            "capital": "Accra",
+            "population": 32000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Guinée",
+          "metadata": {
+            "capital": "Conakry",
+            "population": 14000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Guinée-Bissau",
+          "metadata": {
+            "capital": "Bissau",
+            "population": 2000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Kenya",
+          "metadata": {
+            "capital": "Nairobi",
+            "population": 54000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Lesotho",
+          "metadata": {
+            "capital": "Maseru",
+            "population": 2200000,
+            "region": "Afrique australe"
+          }
+        },
+        {
+          "name": "Liberia",
+          "metadata": {
+            "capital": "Monrovia",
+            "population": 5000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Libye",
+          "metadata": {
+            "capital": "Tripoli",
+            "population": 7000000,
+            "region": "Afrique du Nord"
+          }
+        },
+        {
+          "name": "Madagascar",
+          "metadata": {
+            "capital": "Antananarivo",
+            "population": 28000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Malawi",
+          "metadata": {
+            "capital": "Lilongwe",
+            "population": 20000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Mali",
+          "metadata": {
+            "capital": "Bamako",
+            "population": 22000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Mauritanie",
+          "metadata": {
+            "capital": "Nouakchott",
+            "population": 4700000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Maurice",
+          "metadata": {
+            "capital": "Port-Louis",
+            "population": 1300000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Maroc",
+          "metadata": {
+            "capital": "Rabat",
+            "population": 37000000,
+            "region": "Afrique du Nord"
+          }
+        },
+        {
+          "name": "Mozambique",
+          "metadata": {
+            "capital": "Maputo",
+            "population": 32000000,
+            "region": "Afrique australe"
+          }
+        },
+        {
+          "name": "Namibie",
+          "metadata": {
+            "capital": "Windhoek",
+            "population": 2600000,
+            "region": "Afrique australe"
+          }
+        },
+        {
+          "name": "Niger",
+          "metadata": {
+            "capital": "Niamey",
+            "population": 25000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Nigeria",
+          "metadata": {
+            "capital": "Abuja",
+            "population": 220000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Ouganda",
+          "metadata": {
+            "capital": "Kampala",
+            "population": 46000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Rwanda",
+          "metadata": {
+            "capital": "Kigali",
+            "population": 13000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Sao Tomé-et-Principe",
+          "metadata": {
+            "capital": "São Tomé",
+            "population": 220000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
+          "name": "Sénégal",
+          "metadata": {
+            "capital": "Dakar",
+            "population": 17000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Seychelles",
+          "metadata": {
+            "capital": "Victoria",
+            "population": 100000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Sierra Leone",
+          "metadata": {
+            "capital": "Freetown",
+            "population": 8000000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Somalie",
+          "metadata": {
+            "capital": "Mogadiscio",
+            "population": 17000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Soudan",
+          "metadata": {
+            "capital": "Khartoum",
+            "population": 45000000,
+            "region": "Afrique du Nord"
+          }
+        },
+        {
+          "name": "Soudan du Sud",
+          "metadata": {
+            "capital": "Djouba",
+            "population": 11000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Tanzanie",
+          "metadata": {
+            "capital": "Dodoma",
+            "population": 63000000,
+            "region": "Afrique de l'Est"
+          }
+        },
+        {
+          "name": "Togo",
+          "metadata": {
+            "capital": "Lomé",
+            "population": 8500000,
+            "region": "Afrique de l'Ouest"
+          }
+        },
+        {
+          "name": "Tunisie",
+          "metadata": {
+            "capital": "Tunis",
+            "population": 12000000,
+            "region": "Afrique du Nord"
+          }
+        },
+        {
+          "name": "Zambie",
+          "metadata": {
+            "capital": "Lusaka",
+            "population": 20000000,
+            "region": "Afrique australe"
+          }
+        },
+        {
+          "name": "Zimbabwe",
+          "metadata": {
+            "capital": "Harare",
+            "population": 16000000,
+            "region": "Afrique australe"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Capitales d'Europe",
+      "description": "Les capitales des pays européens reconnus",
+      "items": [
+        {
+          "name": "Paris",
+          "metadata": {
+            "pays": "France",
+            "population": 2200000
+          }
+        },
+        {
+          "name": "Londres",
+          "metadata": {
+            "pays": "Royaume-Uni",
+            "population": 9000000
+          }
+        },
+        {
+          "name": "Berlin",
+          "metadata": {
+            "pays": "Allemagne",
+            "population": 3700000
+          }
+        },
+        {
+          "name": "Madrid",
+          "metadata": {
+            "pays": "Espagne",
+            "population": 3300000
+          }
+        },
+        {
+          "name": "Rome",
+          "metadata": {
+            "pays": "Italie",
+            "population": 2800000
+          }
+        },
+        {
+          "name": "Lisbonne",
+          "metadata": {
+            "pays": "Portugal",
+            "population": 500000
+          }
+        },
+        {
+          "name": "Bruxelles",
+          "metadata": {
+            "pays": "Belgique",
+            "population": 180000
+          }
+        },
+        {
+          "name": "Amsterdam",
+          "metadata": {
+            "pays": "Pays-Bas",
+            "population": 870000
+          }
+        }
+      ]
+    },
+    {
+      "name": "Océans du monde",
+      "description": "Les cinq océans reconnus par l'Organisation Hydrographique Internationale",
+      "items": [
+        {
+          "name": "Océan Pacifique",
+          "metadata": {
+            "superficie_km2": 165200000,
+            "profondeur_max": 10911
+          }
+        },
+        {
+          "name": "Océan Atlantique",
+          "metadata": {
+            "superficie_km2": 106460000,
+            "profondeur_max": 8486
+          }
+        },
+        {
+          "name": "Océan Indien",
+          "metadata": {
+            "superficie_km2": 70560000,
+            "profondeur_max": 7258
+          }
+        },
+        {
+          "name": "Océan Arctique",
+          "metadata": {
+            "superficie_km2": 14090000,
+            "profondeur_max": 5450
+          }
+        },
+        {
+          "name": "Océan Austral",
+          "metadata": {
+            "superficie_km2": 20327000,
+            "profondeur_max": 7236
+          }
+        }
+      ]
+    }
+  ]
+}
+

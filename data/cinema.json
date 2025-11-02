@@ -1,0 +1,214 @@
+{
+  "category": "Cinéma",
+  "lists": [
+    {
+      "name": "Films de Quentin Tarantino",
+      "description": "La filmographie principale de Quentin Tarantino (réalisateur)",
+      "items": [
+        {
+          "name": "Reservoir Dogs",
+          "metadata": {
+            "year": 1992,
+            "genre": "Thriller"
+          }
+        },
+        {
+          "name": "Pulp Fiction",
+          "metadata": {
+            "year": 1994,
+            "genre": "Crime",
+            "awards": "Palme d'Or"
+          }
+        },
+        {
+          "name": "Jackie Brown",
+          "metadata": {
+            "year": 1997,
+            "genre": "Crime"
+          }
+        },
+        {
+          "name": "Kill Bill: Volume 1",
+          "metadata": {
+            "year": 2003,
+            "genre": "Action"
+          }
+        },
+        {
+          "name": "Kill Bill: Volume 2",
+          "metadata": {
+            "year": 2004,
+            "genre": "Action"
+          }
+        },
+        {
+          "name": "Death Proof",
+          "metadata": {
+            "year": 2007,
+            "genre": "Thriller"
+          }
+        },
+        {
+          "name": "Inglourious Basterds",
+          "metadata": {
+            "year": 2009,
+            "genre": "Guerre"
+          }
+        },
+        {
+          "name": "Django Unchained",
+          "metadata": {
+            "year": 2012,
+            "genre": "Western"
+          }
+        },
+        {
+          "name": "The Hateful Eight",
+          "metadata": {
+            "year": 2015,
+            "genre": "Western"
+          }
+        },
+        {
+          "name": "Once Upon a Time in Hollywood",
+          "metadata": {
+            "year": 2019,
+            "genre": "Comédie dramatique"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Films Marvel Studios (Phase 1)",
+      "description": "Les six premiers films de l'Univers Cinématographique Marvel",
+      "items": [
+        {
+          "name": "Iron Man",
+          "metadata": {
+            "year": 2008,
+            "hero": "Tony Stark"
+          }
+        },
+        {
+          "name": "The Incredible Hulk",
+          "metadata": {
+            "year": 2008,
+            "hero": "Bruce Banner"
+          }
+        },
+        {
+          "name": "Iron Man 2",
+          "metadata": {
+            "year": 2010,
+            "hero": "Tony Stark"
+          }
+        },
+        {
+          "name": "Thor",
+          "metadata": {
+            "year": 2011,
+            "hero": "Thor"
+          }
+        },
+        {
+          "name": "Captain America: The First Avenger",
+          "metadata": {
+            "year": 2011,
+            "hero": "Steve Rogers"
+          }
+        },
+        {
+          "name": "The Avengers",
+          "metadata": {
+            "year": 2012,
+            "hero": "Ensemble"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Vainqueurs de l'Oscar du Meilleur Film (2010-2020)",
+      "description": "Les films qui ont remporté l'Oscar du Meilleur Film entre 2010 et 2020",
+      "items": [
+        {
+          "name": "The Hurt Locker",
+          "metadata": {
+            "year": 2010,
+            "director": "Kathryn Bigelow"
+          }
+        },
+        {
+          "name": "The King's Speech",
+          "metadata": {
+            "year": 2011,
+            "director": "Tom Hooper"
+          }
+        },
+        {
+          "name": "The Artist",
+          "metadata": {
+            "year": 2012,
+            "director": "Michel Hazanavicius"
+          }
+        },
+        {
+          "name": "Argo",
+          "metadata": {
+            "year": 2013,
+            "director": "Ben Affleck"
+          }
+        },
+        {
+          "name": "12 Years a Slave",
+          "metadata": {
+            "year": 2014,
+            "director": "Steve McQueen"
+          }
+        },
+        {
+          "name": "Birdman",
+          "metadata": {
+            "year": 2015,
+            "director": "Alejandro González Iñárritu"
+          }
+        },
+        {
+          "name": "Spotlight",
+          "metadata": {
+            "year": 2016,
+            "director": "Tom McCarthy"
+          }
+        },
+        {
+          "name": "Moonlight",
+          "metadata": {
+            "year": 2017,
+            "director": "Barry Jenkins"
+          }
+        },
+        {
+          "name": "The Shape of Water",
+          "metadata": {
+            "year": 2018,
+            "director": "Guillermo del Toro"
+          }
+        },
+        {
+          "name": "Green Book",
+          "metadata": {
+            "year": 2019,
+            "director": "Peter Farrelly"
+          }
+        },
+        {
+          "name": "Parasite",
+          "metadata": {
+            "year": 2020,
+            "director": "Bong Joon-ho"
+          }
+        }
+      ]
+    }
+  ]
+}
+

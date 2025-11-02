@@ -1,0 +1,203 @@
+{
+  "category": "Science",
+  "lists": [
+    {
+      "name": "Planètes du Système Solaire",
+      "description": "Les 8 planètes reconnues du système solaire (depuis la reclassification de Pluton en 2006)",
+      "items": [
+        {
+          "name": "Mercure",
+          "metadata": {
+            "type": "Tellurique",
+            "distance_soleil_ua": 0.39,
+            "lunes": 0
+          }
+        },
+        {
+          "name": "Vénus",
+          "metadata": {
+            "type": "Tellurique",
+            "distance_soleil_ua": 0.72,
+            "lunes": 0
+          }
+        },
+        {
+          "name": "Terre",
+          "metadata": {
+            "type": "Tellurique",
+            "distance_soleil_ua": 1.0,
+            "lunes": 1
+          }
+        },
+        {
+          "name": "Mars",
+          "metadata": {
+            "type": "Tellurique",
+            "distance_soleil_ua": 1.52,
+            "lunes": 2
+          }
+        },
+        {
+          "name": "Jupiter",
+          "metadata": {
+            "type": "Géante gazeuse",
+            "distance_soleil_ua": 5.2,
+            "lunes": 95
+          }
+        },
+        {
+          "name": "Saturne",
+          "metadata": {
+            "type": "Géante gazeuse",
+            "distance_soleil_ua": 9.58,
+            "lunes": 146
+          }
+        },
+        {
+          "name": "Uranus",
+          "metadata": {
+            "type": "Géante de glace",
+            "distance_soleil_ua": 19.22,
+            "lunes": 27
+          }
+        },
+        {
+          "name": "Neptune",
+          "metadata": {
+            "type": "Géante de glace",
+            "distance_soleil_ua": 30.05,
+            "lunes": 14
+          }
+        }
+      ]
+    },
+    {
+      "name": "Éléments chimiques les plus courants",
+      "description": "Les 10 éléments les plus abondants dans l'univers",
+      "items": [
+        {
+          "name": "Hydrogène",
+          "metadata": {
+            "symbole": "H",
+            "numero_atomique": 1,
+            "abondance": "74%"
+          }
+        },
+        {
+          "name": "Hélium",
+          "metadata": {
+            "symbole": "He",
+            "numero_atomique": 2,
+            "abondance": "24%"
+          }
+        },
+        {
+          "name": "Oxygène",
+          "metadata": {
+            "symbole": "O",
+            "numero_atomique": 8,
+            "abondance": "1%"
+          }
+        },
+        {
+          "name": "Carbone",
+          "metadata": {
+            "symbole": "C",
+            "numero_atomique": 6,
+            "abondance": "0.5%"
+          }
+        },
+        {
+          "name": "Néon",
+          "metadata": {
+            "symbole": "Ne",
+            "numero_atomique": 10,
+            "abondance": "0.13%"
+          }
+        },
+        {
+          "name": "Azote",
+          "metadata": {
+            "symbole": "N",
+            "numero_atomique": 7,
+            "abondance": "0.1%"
+          }
+        },
+        {
+          "name": "Fer",
+          "metadata": {
+            "symbole": "Fe",
+            "numero_atomique": 26,
+            "abondance": "0.11%"
+          }
+        },
+        {
+          "name": "Silicium",
+          "metadata": {
+            "symbole": "Si",
+            "numero_atomique": 14,
+            "abondance": "0.07%"
+          }
+        },
+        {
+          "name": "Magnésium",
+          "metadata": {
+            "symbole": "Mg",
+            "numero_atomique": 12,
+            "abondance": "0.06%"
+          }
+        },
+        {
+          "name": "Soufre",
+          "metadata": {
+            "symbole": "S",
+            "numero_atomique": 16,
+            "abondance": "0.04%"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Prix Nobel de Physique célèbres",
+      "description": "Quelques lauréats emblématiques du Prix Nobel de Physique",
+      "items": [
+        {
+          "name": "Albert Einstein",
+          "metadata": {
+            "year": 1921,
+            "raison": "Effet photoélectrique"
+          }
+        },
+        {
+          "name": "Marie Curie",
+          "metadata": {
+            "year": 1903,
+            "raison": "Radioactivité"
+          }
+        },
+        {
+          "name": "Niels Bohr",
+          "metadata": {
+            "year": 1922,
+            "raison": "Structure atomique"
+          }
+        },
+        {
+          "name": "Richard Feynman",
+          "metadata": {
+            "year": 1965,
+            "raison": "Électrodynamique quantique"
+          }
+        },
+        {
+          "name": "Stephen Hawking",
+          "metadata": {
+            "year": null,
+            "raison": "N'a jamais reçu le Nobel (mais contributions majeures)"
+          }
+        }
+      ]
+    }
+  ]
+}
+
