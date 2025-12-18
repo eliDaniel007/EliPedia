@@ -385,7 +385,7 @@
         <div id="learn-mode" class="mode active">
             <div class="search-section">
                 <div class="search-bar">
-                    <input type="text" id="search-input" placeholder="Rechercher un pays, une capitale, un film..." onkeypress="handleSearchKeyPress(event)">
+                    <input type="text" id="search-input" placeholder="Rechercher un pays d'Afrique..." onkeypress="handleSearchKeyPress(event)">
                     <button onclick="performSearch()">🔍 Rechercher</button>
                 </div>
             </div>
@@ -400,7 +400,8 @@
         <!-- Mode Jeu -->
         <div id="play-mode" class="mode">
             <div class="game-setup">
-                <h2>Choisissez votre mode de jeu</h2>
+                <h2>Pays d'Afrique - Mode Jeu</h2>
+                <p style="color: #666; margin-bottom: 20px;">Trouvez les 54 pays d'Afrique !</p>
                 
                 <div class="game-options" id="game-options">
                     <!-- Les options seront chargées dynamiquement -->
@@ -471,6 +472,13 @@
         // Afficher les catégories
         function displayCategories() {
             const container = document.getElementById('categories');
+            
+            // Si une seule catégorie avec une seule liste, aller directement à la liste
+            if (categories.length === 1 && categories[0].list_count === '1') {
+                viewList(categories[0].id);
+                return;
+            }
+            
             container.innerHTML = categories.map(cat => `
                 <div class="category-card" onclick="viewList(${cat.id})">
                     <h2>${cat.name}</h2>
@@ -487,6 +495,12 @@
             const category = data.data;
 
             document.getElementById('categories').style.display = 'none';
+            
+            // Si une seule liste, aller directement aux détails
+            if (category.lists.length === 1) {
+                viewListDetails(category.lists[0].id);
+                return;
+            }
             
             const listDetails = document.getElementById('list-details');
             listDetails.style.display = 'block';
@@ -625,12 +639,25 @@
                 const lists = data.data;
 
                 const container = document.getElementById('game-options');
-                container.innerHTML = lists.map(list => `
-                    <div class="game-mode-card" onclick="selectGameList(${list.id})">
-                        <h3>${list.name}</h3>
-                        <p>${list.item_count} éléments</p>
-                    </div>
-                `).join('');
+                
+                // Si une seule liste, la sélectionner automatiquement
+                if (lists.length === 1) {
+                    selectedListId = lists[0].id;
+                    container.innerHTML = `
+                        <div class="game-mode-card selected">
+                            <h3>${lists[0].name}</h3>
+                            <p>${lists[0].item_count} pays à trouver</p>
+                        </div>
+                    `;
+                    document.getElementById('start-game-btn').disabled = false;
+                } else {
+                    container.innerHTML = lists.map(list => `
+                        <div class="game-mode-card" onclick="selectGameList(${list.id})">
+                            <h3>${list.name}</h3>
+                            <p>${list.item_count} éléments</p>
+                        </div>
+                    `).join('');
+                }
             } catch (error) {
                 console.error('Erreur chargement listes');
             }

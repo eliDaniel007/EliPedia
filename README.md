@@ -24,10 +24,9 @@
 - ✅ Détection des doublons
 - ✅ Feedback visuel immédiat
 
-### 🗂️ Contenu Riche
-- ✅ **117 items** de connaissances
+### 🗂️ Contenu
 - ✅ **54 pays d'Afrique** complets
-- ✅ Films, Capitales, Océans, Éléments chimiques...
+- ✅ Capitales, populations, régions
 - ✅ Métadonnées JSON flexibles
 
 ---
@@ -141,10 +140,9 @@ npm run dev
 ## 📈 Statistiques
 
 - 🗄️ **3 tables** SQL
-- 🏷️ **3 catégories** (Géographie, Cinéma, Science)
-- 📋 **9 listes** complètes
-- 📌 **117 items** de connaissances
-- 🌍 **54 pays africains** complets
+- 🏷️ **1 catégorie** (Géographie)
+- 📋 **1 liste** complète
+- 📌 **54 pays d'Afrique** avec métadonnées
 
 ## 🚀 Utilisation Rapide
 

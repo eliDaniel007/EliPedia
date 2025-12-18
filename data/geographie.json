@@ -86,14 +86,6 @@
           }
         },
         {
-          "name": "Tchad",
-          "metadata": {
-            "capital": "N'Djamena",
-            "population": 17000000,
-            "region": "Afrique centrale"
-          }
-        },
-        {
           "name": "Comores",
           "metadata": {
             "capital": "Moroni",
@@ -110,7 +102,7 @@
           }
         },
         {
-          "name": "RD Congo",
+          "name": "République démocratique du Congo",
           "metadata": {
             "capital": "Kinshasa",
             "population": 100000000,
@@ -139,14 +131,6 @@
             "capital": "Le Caire",
             "population": 104000000,
             "region": "Afrique du Nord"
-          }
-        },
-        {
-          "name": "Guinée équatoriale",
-          "metadata": {
-            "capital": "Malabo",
-            "population": 1500000,
-            "region": "Afrique centrale"
           }
         },
         {
@@ -214,6 +198,14 @@
           }
         },
         {
+          "name": "Guinée équatoriale",
+          "metadata": {
+            "capital": "Malabo",
+            "population": 1500000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
           "name": "Kenya",
           "metadata": {
             "capital": "Nairobi",
@@ -270,11 +262,11 @@
           }
         },
         {
-          "name": "Mauritanie",
+          "name": "Maroc",
           "metadata": {
-            "capital": "Nouakchott",
-            "population": 4700000,
-            "region": "Afrique de l'Ouest"
+            "capital": "Rabat",
+            "population": 37000000,
+            "region": "Afrique du Nord"
           }
         },
         {
@@ -286,11 +278,11 @@
           }
         },
         {
-          "name": "Maroc",
+          "name": "Mauritanie",
           "metadata": {
-            "capital": "Rabat",
-            "population": 37000000,
-            "region": "Afrique du Nord"
+            "capital": "Nouakchott",
+            "population": 4700000,
+            "region": "Afrique de l'Ouest"
           }
         },
         {
@@ -342,7 +334,7 @@
           }
         },
         {
-          "name": "Sao Tomé-et-Principe",
+          "name": "São Tomé-et-Principe",
           "metadata": {
             "capital": "São Tomé",
             "population": 220000,
@@ -406,6 +398,14 @@
           }
         },
         {
+          "name": "Tchad",
+          "metadata": {
+            "capital": "N'Djamena",
+            "population": 17000000,
+            "region": "Afrique centrale"
+          }
+        },
+        {
           "name": "Togo",
           "metadata": {
             "capital": "Lomé",
@@ -438,110 +438,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "Capitales d'Europe",
-      "description": "Les capitales des pays européens reconnus",
-      "items": [
-        {
-          "name": "Paris",
-          "metadata": {
-            "pays": "France",
-            "population": 2200000
-          }
-        },
-        {
-          "name": "Londres",
-          "metadata": {
-            "pays": "Royaume-Uni",
-            "population": 9000000
-          }
-        },
-        {
-          "name": "Berlin",
-          "metadata": {
-            "pays": "Allemagne",
-            "population": 3700000
-          }
-        },
-        {
-          "name": "Madrid",
-          "metadata": {
-            "pays": "Espagne",
-            "population": 3300000
-          }
-        },
-        {
-          "name": "Rome",
-          "metadata": {
-            "pays": "Italie",
-            "population": 2800000
-          }
-        },
-        {
-          "name": "Lisbonne",
-          "metadata": {
-            "pays": "Portugal",
-            "population": 500000
-          }
-        },
-        {
-          "name": "Bruxelles",
-          "metadata": {
-            "pays": "Belgique",
-            "population": 180000
-          }
-        },
-        {
-          "name": "Amsterdam",
-          "metadata": {
-            "pays": "Pays-Bas",
-            "population": 870000
-          }
-        }
-      ]
-    },
-    {
-      "name": "Océans du monde",
-      "description": "Les cinq océans reconnus par l'Organisation Hydrographique Internationale",
-      "items": [
-        {
-          "name": "Océan Pacifique",
-          "metadata": {
-            "superficie_km2": 165200000,
-            "profondeur_max": 10911
-          }
-        },
-        {
-          "name": "Océan Atlantique",
-          "metadata": {
-            "superficie_km2": 106460000,
-            "profondeur_max": 8486
-          }
-        },
-        {
-          "name": "Océan Indien",
-          "metadata": {
-            "superficie_km2": 70560000,
-            "profondeur_max": 7258
-          }
-        },
-        {
-          "name": "Océan Arctique",
-          "metadata": {
-            "superficie_km2": 14090000,
-            "profondeur_max": 5450
-          }
-        },
-        {
-          "name": "Océan Austral",
-          "metadata": {
-            "superficie_km2": 20327000,
-            "profondeur_max": 7236
-          }
-        }
-      ]
     }
   ]
 }
-
