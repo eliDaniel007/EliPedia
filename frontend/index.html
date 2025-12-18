@@ -264,13 +264,38 @@
             'rdc': 'république démocratique du congo',
             'congo rdc': 'république démocratique du congo',
             'congo kinshasa': 'république démocratique du congo',
+            'kinshasa': 'république démocratique du congo',
+            'zaïre': 'république démocratique du congo',
+            'zaire': 'république démocratique du congo',
+            
             'rca': 'république centrafricaine',
             'centrafrique': 'république centrafricaine',
+            'centrafrica': 'république centrafricaine',
+            
             'sao tome': 'são tomé-et-principe',
+            'sao tomé': 'são tomé-et-principe',
+            'sao tome et principe': 'são tomé-et-principe',
+            
             'swaziland': 'eswatini',
+            
             'cote d ivoire': 'côte d\'ivoire',
+            'cote divoire': 'côte d\'ivoire',
+            'ci': 'côte d\'ivoire',
+            
             'cap vert': 'cap-vert',
-            'afrique du sud': 'afrique du sud'
+            'cabo verde': 'cap-vert',
+            
+            'afrique du sud': 'afrique du sud',
+            'rsa': 'afrique du sud',
+            'ads': 'afrique du sud',
+
+            'congo': 'république du congo',
+            'congo brazzaville': 'république du congo',
+            'congo brazza': 'république du congo',
+            'brazzaville': 'république du congo',
+
+            'guinee bissau': 'guinée-bissau',
+            'guinee equatoriale': 'guinée équatoriale'
         };
 
         function normalize(str) {
@@ -321,9 +346,16 @@
 
         // --- INITIALISATION ---
         async function init() {
+            // Afficher le chargement
+            document.getElementById('loading').style.display = 'block';
             await loadData();
             initSearch();
-            setupGameUI();
+            setupGameUI(); // Initialiser les écouteurs d'événements si nécessaire
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function setupGameUI() {
+            // Rien de spécial pour l'instant, mais prêt pour plus tard
         }
 
         async function loadData() {
