@@ -342,6 +342,16 @@
             padding: 20px;
             text-align: center;
             transition: transform 0.3s ease;
+            height: 160px; /* Hauteur fixe */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
 
         .item-card:hover {
@@ -544,15 +554,17 @@
                 listDetails.style.display = 'block';
                 
                 listDetails.innerHTML = `
-                    <button class="btn-back" onclick="goBack()">← Retour</button>
-                    <h2>${list.name}</h2>
-                    <p style="color: #666; margin-bottom: 20px;">${list.description || ''}</p>
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <span class="badge" style="margin-bottom: 10px;">Géographie</span>
+                        <h2>${list.name}</h2>
+                        <p style="color: #666;">${list.description || ''}</p>
+                    </div>
                     <div class="items-grid">
                         ${list.items.map(item => `
                             <div class="item-card">
                                 <h3>${item.name}</h3>
                                 ${item.metadata && Object.keys(item.metadata).length > 0 ? 
-                                    `<div style="font-size: 0.9em; opacity: 0.9; margin-top: 10px;">${formatMetadata(item.metadata)}</div>` : ''}
+                                    `<div style="font-size: 0.9em; opacity: 0.9;">${formatMetadata(item.metadata)}</div>` : ''}
                             </div>
                         `).join('')}
                     </div>
@@ -605,7 +617,13 @@
             if (query.length >= 2) {
                 await performSearch();
             } else {
-                displayCategories();
+                // Si la recherche est vide, on réaffiche la liste complète
+                if (document.getElementById('list-details').innerHTML !== '') {
+                    document.getElementById('categories').style.display = 'none';
+                    document.getElementById('list-details').style.display = 'block';
+                } else {
+                    loadPaysDirectly();
+                }
             }
         }
 
@@ -618,21 +636,30 @@
                 const data = await response.json();
                 displaySearchResults(data.results);
             } catch (error) {
-                showError('Erreur de recherche.');
+                // Silencieux pour la recherche
             }
         }
 
         function displaySearchResults(results) {
+            // Utiliser la zone des catégories pour afficher les résultats
             const container = document.getElementById('categories');
             container.innerHTML = '';
             
+            // Masquer les détails de la liste pour afficher les résultats de recherche
+            document.getElementById('list-details').style.display = 'none';
+            container.style.display = 'grid';
+            
             if (results.items.length > 0) {
-                container.innerHTML += results.items.map(item => `
+                container.innerHTML = results.items.map(item => `
                     <div class="item-card">
                         <h3>${item.name}</h3>
-                        <p style="font-size: 0.9em;">${item.category_name} > ${item.list_name}</p>
+                        ${item.metadata ? 
+                            `<div style="font-size: 0.9em; opacity: 0.9;">${formatMetadata(item.metadata)}</div>` : 
+                            `<p style="font-size: 0.9em;">${item.category_name} > ${item.list_name}</p>`}
                     </div>
                 `).join('');
+            } else {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 20px;">Aucun résultat trouvé</div>';
             }
         }
 
