@@ -460,7 +460,9 @@
                 type: null, // 'solo' | 'duel_ai' | 'duel_friend'
                 selectedCategory: 'geographie',
                 selectedListId: null,
-                theme: 'base', // 'base' | variantes spécifiques
+                theme: 'base', // 'base' | 'capitales' | 'filtered'
+                themeFilter: null, // { key: 'village', value: 'Konoha' }
+                themeDisplayName: null,
                 difficulty: 'easy',
                 playerCount: 2,
                 players: [], // ['p1', 'p2', 'p3', ...]
@@ -479,6 +481,7 @@
 
         // --- ALIAS & NORMALISATION ---
         const ALIASES = {
+            // Pays d'Afrique
             'rdc': 'république démocratique du congo',
             'congo rdc': 'république démocratique du congo',
             'congo kinshasa': 'république démocratique du congo',
@@ -513,7 +516,76 @@
             'brazzaville': 'république du congo',
 
             'guinee bissau': 'guinée-bissau',
-            'guinee equatoriale': 'guinée équatoriale'
+            'guinee equatoriale': 'guinée équatoriale',
+            
+            // Personnages Naruto
+            'naruto': 'naruto uzumaki',
+            'sasuke': 'sasuke uchiwa',
+            'sakura': 'sakura haruno',
+            'kakashi': 'kakashi hatake',
+            'itachi': 'itachi uchiwa',
+            'gaara': 'gaara',
+            'rock lee': 'rock lee',
+            'lee': 'rock lee',
+            'neji': 'neji hyûga',
+            'hinata': 'hinata hyûga',
+            'shikamaru': 'shikamaru nara',
+            'choji': 'chôji akimichi',
+            'ino': 'ino yamanaka',
+            'kiba': 'kiba inuzuka',
+            'shino': 'shino aburame',
+            'tenten': 'tenten',
+            'guy': 'guy might',
+            'maito guy': 'guy might',
+            'jiraya': 'jiraya',
+            'jiraiya': 'jiraya',
+            'tsunade': 'tsunade',
+            'orochimaru': 'orochimaru',
+            'minato': 'minato namikaze',
+            'kushina': 'kushina uzumaki',
+            'obito': 'obito uchiwa',
+            'madara': 'madara uchiwa',
+            'hashirama': 'hashirama senju',
+            'tobirama': 'tobirama senju',
+            'hiruzen': 'hiruzen sarutobi',
+            'konohamaru': 'konohamaru sarutobi',
+            'asuma': 'asuma sarutobi',
+            'kurenai': 'kurenaï yûhi',
+            'iruka': 'iruka umino',
+            'pain': 'pain',
+            'nagato': 'nagato',
+            'konan': 'konan',
+            'deidara': 'deidara',
+            'sasori': 'sasori',
+            'hidan': 'hidan',
+            'kakuzu': 'kakuzu',
+            'kisame': 'kisame hoshigaki',
+            'zetsu': 'zetsu',
+            'tobi': 'tobi',
+            'killer b': 'killer b',
+            'killer bee': 'killer b',
+            'temari': 'temari',
+            'kankuro': 'kankurô',
+            'boruto': 'boruto uzumaki',
+            'sarada': 'sarada uchiwa',
+            'mitsuki': 'mitsuki',
+            'metal lee': 'metal lee',
+            'shikadai': 'shikadaï nara',
+            'inojin': 'inojin yamanaka',
+            'chocho': 'chôchô akimichi',
+            'yamato': 'yamato',
+            'sai': 'saï',
+            'danzo': 'danzô shimura',
+            'shisui': 'shisui uchiwa',
+            'zabuza': 'zabuza momochi',
+            'haku': 'haku',
+            'kaguya': 'kaguya ôtsutsuki',
+            'hagoromo': 'hagoromo ôtsutsuki',
+            'hamura': 'hamura ôtsutsuki',
+            'indra': 'indra ôtsutsuki',
+            'ashura': 'ashura ôtsutsuki',
+            'might dai': 'might daï',
+            'dai': 'daï'
         };
 
         function normalize(str) {
@@ -625,7 +697,7 @@
             updateListOptions('geographie');
         }
 
-        function updateListOptions(category) {
+        async function updateListOptions(category) {
             const container = document.getElementById('list-options');
             const lists = appState.listsByCategory[category] || [];
             
@@ -643,13 +715,17 @@
             // Sélectionner la première liste par défaut
             if (lists.length > 0) {
                 appState.game.selectedListId = lists[0].id;
-                updateThemeOptions(lists[0]);
+                await updateThemeOptions(lists[0]);
             }
         }
 
-        function updateThemeOptions(list) {
+        async function updateThemeOptions(list) {
             const themeContainer = document.getElementById('theme-options');
             const themeSelector = document.getElementById('theme-selector');
+            
+            // Charger les items de la liste pour extraire les filtres
+            await loadListById(list.id);
+            const items = appState.listData.items;
             
             // Si c'est géographie, on peut jouer avec pays ou capitales
             if (list.category_name?.toLowerCase() === 'géographie') {
@@ -659,6 +735,41 @@
                     <div class="diff-btn" onclick="setTheme('capitales')">🏛️ Capitales</div>
                 `;
                 appState.game.theme = 'base';
+            } 
+            // Si c'est animés (Naruto), extraire les filtres disponibles
+            else if (list.category_name?.toLowerCase() === 'animés') {
+                const filters = extractFilters(items);
+                themeSelector.style.display = 'block';
+                
+                let themeHTML = `<div class="diff-btn active" onclick="setTheme('base')">🎌 Tous les personnages</div>`;
+                
+                // Ajouter des variantes par village (top 5)
+                if (filters.village && filters.village.length > 0) {
+                    const topVillages = filters.village.filter(v => v !== 'Inconnu' && v !== 'Aucun').slice(0, 5);
+                    topVillages.forEach(village => {
+                        themeHTML += `<div class="diff-btn" onclick="setThemeFilter('village', '${village}')">🏘️ ${village}</div>`;
+                    });
+                }
+                
+                // Ajouter des variantes par rang (top 5)
+                if (filters.rang && filters.rang.length > 0) {
+                    const topRangs = filters.rang.filter(r => r !== 'Inconnu' && r !== 'Civile' && r !== 'Civil').slice(0, 5);
+                    topRangs.forEach(rang => {
+                        themeHTML += `<div class="diff-btn" onclick="setThemeFilter('rang', '${rang}')">⭐ ${rang}</div>`;
+                    });
+                }
+                
+                // Ajouter des variantes par clan (top 5)
+                if (filters.clan && filters.clan.length > 0) {
+                    const topClans = filters.clan.filter(c => c !== 'Aucun' && c !== 'Inconnu').slice(0, 5);
+                    topClans.forEach(clan => {
+                        themeHTML += `<div class="diff-btn" onclick="setThemeFilter('clan', '${clan}')">👥 ${clan}</div>`;
+                    });
+                }
+                
+                themeContainer.innerHTML = themeHTML;
+                appState.game.theme = 'base';
+                appState.game.themeFilter = null;
             } else {
                 // Pour les autres catégories, pas de variante
                 themeSelector.style.display = 'none';
@@ -666,21 +777,21 @@
             }
         }
 
-        function selectCategory(category) {
+        async function selectCategory(category) {
             appState.game.selectedCategory = category;
             document.querySelectorAll('#category-selector .diff-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
-            updateListOptions(category);
+            await updateListOptions(category);
         }
 
-        function selectList(listId) {
+        async function selectList(listId) {
             appState.game.selectedListId = listId;
             document.querySelectorAll('#list-options .diff-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
             
             const list = appState.allLists.find(l => l.id === listId);
             if (list) {
-                updateThemeOptions(list);
+                await updateThemeOptions(list);
             }
         }
 
@@ -729,6 +840,14 @@
 
         function setTheme(theme) {
             appState.game.theme = theme;
+            appState.game.themeFilter = null;
+            document.querySelectorAll('#theme-options .diff-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function setThemeFilter(filterKey, filterValue) {
+            appState.game.theme = 'filtered';
+            appState.game.themeFilter = { key: filterKey, value: filterValue };
             document.querySelectorAll('#theme-options .diff-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
         }
@@ -742,16 +861,29 @@
             // Charger la liste sélectionnée
             await loadListById(appState.game.selectedListId);
 
+            let filteredItems = appState.listData.items;
+
+            // Appliquer le filtre si présent (ex: village, rang, clan)
+            if (appState.game.theme === 'filtered' && appState.game.themeFilter) {
+                const { key, value } = appState.game.themeFilter;
+                filteredItems = appState.listData.items.filter(item => 
+                    item.metadata && item.metadata[key] === value
+                );
+            }
+
             // Préparer les items selon le thème choisi
             if (appState.game.theme === 'capitales') {
                 // Extraire les capitales depuis les métadonnées
-                appState.items = appState.listData.items
+                appState.items = filteredItems
                     .map(item => item.metadata?.capital)
                     .filter(cap => cap); // Enlever les valeurs vides
             } else {
-                // Base : les noms d'items
-                appState.items = appState.listData.items.map(i => i.name);
+                // Base ou filtré : les noms d'items
+                appState.items = filteredItems.map(i => i.name);
             }
+
+            // Sauvegarder les infos du thème pour l'affichage
+            appState.game.themeDisplayName = getThemeDisplayName();
 
             // Configuration des joueurs
             if (selectedGameMode === 'duel_friend') {
@@ -771,14 +903,36 @@
             }
         }
 
+        function getThemeDisplayName() {
+            // Détecter si c'est une liste Naruto
+            const selectedList = appState.allLists.find(l => l.id === appState.game.selectedListId);
+            const isNaruto = selectedList?.category_name?.toLowerCase() === 'animés';
+            
+            if (appState.game.theme === 'capitales') {
+                return { name: 'capitales', icon: '🏛️', text: 'capitales' };
+            } else if (appState.game.theme === 'filtered' && appState.game.themeFilter) {
+                const { key, value } = appState.game.themeFilter;
+                const icons = { village: '🏘️', rang: '⭐', clan: '👥' };
+                const labels = { village: 'du village', rang: 'de rang', clan: 'du clan' };
+                return { 
+                    name: `${value}`, 
+                    icon: icons[key] || '🎌', 
+                    text: `personnages ${labels[key] || ''} ${value}` 
+                };
+            } else if (isNaruto) {
+                return { name: 'personnages', icon: '🎌', text: 'personnages' };
+            } else {
+                return { name: 'pays', icon: '🌍', text: 'pays' };
+            }
+        }
+
         // --- MODE SOLO ---
         function startSoloGame() {
             document.getElementById('game-area').style.display = 'block';
-            const themeName = appState.game.theme === 'capitales' ? 'capitales' : 'pays';
-            const themeIcon = appState.game.theme === 'capitales' ? '🏛️' : '🌍';
+            const theme = appState.game.themeDisplayName;
             
             document.getElementById('game-player-name').textContent = "Mode Solo";
-            document.getElementById('game-objective').innerHTML = `Trouvez les 54 ${themeName} ${themeIcon} (Pas de limite de temps)`;
+            document.getElementById('game-objective').innerHTML = `Trouvez les ${appState.items.length} ${theme.text} ${theme.icon} (Pas de limite de temps)`;
             document.getElementById('timer').parentElement.style.display = 'none'; // Pas de timer en solo classique
             document.getElementById('target-score').textContent = appState.items.length;
             
@@ -794,11 +948,10 @@
             appState.game.turnIndex = 0;
             appState.game.foldedPlayers = new Set(); // Joueurs qui se sont couchés
             
-            const themeName = appState.game.theme === 'capitales' ? 'capitales' : 'pays';
-            const themeIcon = appState.game.theme === 'capitales' ? '🏛️' : '🌍';
+            const theme = appState.game.themeDisplayName;
             
             updateAuctionUI();
-            logAuction(`${themeIcon} Le duel commence sur les ${themeName} ! Qui dit mieux ?`);
+            logAuction(`${theme.icon} Le duel commence sur les ${theme.text} ! Qui dit mieux ?`);
         }
 
         function updateAuctionUI() {
@@ -935,12 +1088,11 @@
             document.getElementById('game-area').style.display = 'block';
             document.getElementById('timer').parentElement.style.display = 'block';
             
-            const themeName = appState.game.theme === 'capitales' ? 'capitales' : 'pays';
-            const themeIcon = appState.game.theme === 'capitales' ? '🏛️' : '🌍';
+            const theme = appState.game.themeDisplayName;
             
             const playerLabel = getPlayerLabel(player);
             document.getElementById('game-player-name').textContent = `${playerLabel} joue !`;
-            document.getElementById('game-objective').innerHTML = `Objectif : <span style="color:#e53e3e;font-weight:bold">${target}</span> ${themeName} ${themeIcon} en 60s`;
+            document.getElementById('game-objective').innerHTML = `Objectif : <span style="color:#e53e3e;font-weight:bold">${target}</span> ${theme.text} ${theme.icon} en 60s`;
             
             appState.game.target = target;
             appState.game.timeLeft = 60;
