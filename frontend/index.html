@@ -460,22 +460,27 @@
         // Charger les catégories
         async function loadCategories() {
             try {
+                document.getElementById('loading').style.display = 'block';
                 const response = await fetch(`${API_BASE}/categories`);
                 const data = await response.json();
                 categories = data.data;
+                document.getElementById('loading').style.display = 'none';
                 displayCategories();
             } catch (error) {
-                showError('Impossible de charger les catégories.');
+                document.getElementById('loading').style.display = 'none';
+                showError('Impossible de charger les catégories. Vérifiez que le serveur est démarré (npm run dev dans backend/)');
+                console.error('Erreur:', error);
             }
         }
 
         // Afficher les catégories
-        function displayCategories() {
+        async function displayCategories() {
             const container = document.getElementById('categories');
+            container.style.display = 'grid';
             
             // Si une seule catégorie avec une seule liste, aller directement à la liste
-            if (categories.length === 1 && categories[0].list_count === '1') {
-                viewList(categories[0].id);
+            if (categories.length === 1 && parseInt(categories[0].list_count) === 1) {
+                await viewList(categories[0].id);
                 return;
             }
             
@@ -490,61 +495,82 @@
 
         // Voir une catégorie
         async function viewList(categoryId) {
-            const response = await fetch(`${API_BASE}/categories/${categoryId}`);
-            const data = await response.json();
-            const category = data.data;
+            try {
+                document.getElementById('loading').style.display = 'block';
+                const response = await fetch(`${API_BASE}/categories/${categoryId}`);
+                const data = await response.json();
+                const category = data.data;
+                document.getElementById('loading').style.display = 'none';
 
-            document.getElementById('categories').style.display = 'none';
-            
-            // Si une seule liste, aller directement aux détails
-            if (category.lists.length === 1) {
-                viewListDetails(category.lists[0].id);
-                return;
+                document.getElementById('categories').style.display = 'none';
+                
+                // Si une seule liste, aller directement aux détails
+                if (category.lists && category.lists.length === 1) {
+                    await viewListDetails(category.lists[0].id);
+                    return;
+                }
+                
+                const listDetails = document.getElementById('list-details');
+                listDetails.style.display = 'block';
+                listDetails.innerHTML = `
+                    <button class="btn-back" onclick="goBack()">← Retour</button>
+                    <h2>${category.name}</h2>
+                    <div class="items-grid" style="margin-top: 20px;">
+                        ${category.lists.map(list => `
+                            <div class="category-card" onclick="viewListDetails(${list.id})">
+                                <h3>${list.name}</h3>
+                                <p>${list.item_count} éléments</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                showError('Impossible de charger la catégorie.');
+                console.error(error);
             }
-            
-            const listDetails = document.getElementById('list-details');
-            listDetails.style.display = 'block';
-            listDetails.innerHTML = `
-                <button class="btn-back" onclick="goBack()">← Retour</button>
-                <h2>${category.name}</h2>
-                <div class="items-grid" style="margin-top: 20px;">
-                    ${category.lists.map(list => `
-                        <div class="category-card" onclick="viewListDetails(${list.id})">
-                            <h3>${list.name}</h3>
-                            <p>${list.item_count} éléments</p>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
         }
 
         // Voir les détails d'une liste
         async function viewListDetails(listId) {
-            const response = await fetch(`${API_BASE}/lists/${listId}`);
-            const data = await response.json();
-            const list = data.data;
+            try {
+                const response = await fetch(`${API_BASE}/lists/${listId}`);
+                const data = await response.json();
+                const list = data.data;
 
-            const listDetails = document.getElementById('list-details');
-            listDetails.innerHTML = `
-                <button class="btn-back" onclick="goBack()">← Retour</button>
-                <h2>${list.name}</h2>
-                <p style="color: #666; margin-bottom: 20px;">${list.description || ''}</p>
-                <div class="items-grid">
-                    ${list.items.map(item => `
-                        <div class="item-card">
-                            <h3>${item.name}</h3>
-                            ${item.metadata && Object.keys(item.metadata).length > 0 ? 
-                                `<div style="font-size: 0.9em; opacity: 0.9; margin-top: 10px;">${formatMetadata(item.metadata)}</div>` : ''}
-                        </div>
-                    `).join('')}
-                </div>
-            `;
+                // Cacher les catégories et afficher les détails
+                document.getElementById('categories').style.display = 'none';
+                const listDetails = document.getElementById('list-details');
+                listDetails.style.display = 'block';
+                
+                listDetails.innerHTML = `
+                    <button class="btn-back" onclick="goBack()">← Retour</button>
+                    <h2>${list.name}</h2>
+                    <p style="color: #666; margin-bottom: 20px;">${list.description || ''}</p>
+                    <div class="items-grid">
+                        ${list.items.map(item => `
+                            <div class="item-card">
+                                <h3>${item.name}</h3>
+                                ${item.metadata && Object.keys(item.metadata).length > 0 ? 
+                                    `<div style="font-size: 0.9em; opacity: 0.9; margin-top: 10px;">${formatMetadata(item.metadata)}</div>` : ''}
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } catch (error) {
+                showError('Impossible de charger les détails de la liste.');
+                console.error(error);
+            }
         }
 
         // Retour
         function goBack() {
-            document.getElementById('list-details').style.display = 'none';
+            const listDetails = document.getElementById('list-details');
+            listDetails.style.display = 'none';
+            listDetails.innerHTML = '';
             document.getElementById('categories').style.display = 'grid';
+            // Recharger les catégories
+            displayCategories();
         }
 
         // Format métadonnées
