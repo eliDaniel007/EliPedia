@@ -94,9 +94,19 @@
         .mode-card h3 { color: #2d3748; margin-bottom: 10px; font-size: 1.5em; }
         .mode-card p { color: #718096; }
 
-        .difficulty-selector { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
-        .diff-btn { padding: 10px 20px; border: 2px solid #cbd5e0; border-radius: 20px; cursor: pointer; background: white; font-weight: bold; }
-        .diff-btn.active { background: #667eea; color: white; border-color: #667eea; }
+        .difficulty-selector { display: flex; justify-content: center; gap: 15px; margin: 20px 0; flex-wrap: wrap; }
+        .diff-btn { 
+            padding: 12px 24px; 
+            border: 2px solid #cbd5e0; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            background: white; 
+            font-weight: bold; 
+            transition: all 0.3s;
+            font-size: 1em;
+        }
+        .diff-btn:hover { background: #f7fafc; border-color: #667eea; transform: translateY(-2px); }
+        .diff-btn.active { background: #667eea; color: white; border-color: #667eea; box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3); }
 
         .auction-controls { text-align: center; margin-top: 30px; }
         .auction-btn { padding: 15px 30px; font-size: 1.2em; border-radius: 10px; border: none; cursor: pointer; margin: 0 10px; transition: transform 0.2s; }
@@ -170,26 +180,28 @@
                     </div>
                 </div>
 
-                <div id="ai-difficulty" style="display: none; text-align: center;">
-                    <h3>Niveau de l'IA</h3>
+                <div id="ai-difficulty" style="display: none; text-align: center; margin-top: 20px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Niveau de l'IA</h3>
                     <div class="difficulty-selector">
-                        <div class="diff-btn active" onclick="setDifficulty('easy')">👶 Facile (Prudent)</div>
-                        <div class="diff-btn" onclick="setDifficulty('medium')">😎 Moyen (Joueur)</div>
-                        <div class="diff-btn" onclick="setDifficulty('hard')">😈 Difficile (Expert)</div>
+                        <div class="diff-btn active" onclick="setDifficulty('easy')">👶 Facile</div>
+                        <div class="diff-btn" onclick="setDifficulty('medium')">😎 Moyen</div>
+                        <div class="diff-btn" onclick="setDifficulty('hard')">😈 Difficile</div>
                     </div>
                 </div>
 
-                <div id="friends-setup" style="display: none; text-align: center;">
-                    <h3>Nombre de joueurs</h3>
+                <div id="friends-setup" style="display: none; text-align: center; margin-top: 20px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Nombre de joueurs</h3>
                     <div class="difficulty-selector">
-                        <div class="diff-btn active" onclick="setPlayerCount(2)">2 Joueurs</div>
-                        <div class="diff-btn" onclick="setPlayerCount(3)">3 Joueurs</div>
-                        <div class="diff-btn" onclick="setPlayerCount(4)">4 Joueurs</div>
+                        <div class="diff-btn active" onclick="setPlayerCount(2)">2 joueurs</div>
+                        <div class="diff-btn" onclick="setPlayerCount(3)">3 joueurs</div>
+                        <div class="diff-btn" onclick="setPlayerCount(4)">4 joueurs</div>
+                        <div class="diff-btn" onclick="setPlayerCount(5)">5 joueurs</div>
+                        <div class="diff-btn" onclick="setPlayerCount(6)">6 joueurs</div>
                     </div>
                 </div>
 
-                <button class="start-game-btn" onclick="initGameSession()" style="margin-top: 30px; font-size: 1.8em; padding: 25px; box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4); text-transform: uppercase; letter-spacing: 2px;">
-                    🚀 Commencer la partie
+                <button class="start-game-btn" onclick="initGameSession()" style="margin-top: 30px; font-size: 1.8em; padding: 25px 60px; background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); box-shadow: 0 10px 25px rgba(72, 187, 120, 0.4); text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">
+                    🚀 C'EST PARTI !
                 </button>
             </div>
 
@@ -258,10 +270,12 @@
                 type: null, // 'solo' | 'duel_ai' | 'duel_friend'
                 difficulty: 'easy',
                 playerCount: 2,
-                players: [], // ['p1', 'p2', ...]
+                players: [], // ['p1', 'p2', 'p3', ...]
                 currentBid: 0,
-                bidHolder: null, 
-                turnIndex: 0, // Index dans players
+                bidHolder: null,
+                turn: null,
+                turnIndex: 0,
+                foldedPlayers: new Set(),
                 target: 0,
                 found: new Set(),
                 timeLeft: 60,
@@ -374,9 +388,7 @@
                 // Charger la liste des pays (ID 1 par défaut ou via API)
                 const res = await fetch(`${API_BASE}/lists`);
                 const data = await res.json();
-                
-                // Si on a des listes
-                if (data.data && data.data.length > 0) {
+                if (data.data.length > 0) {
                     const listId = data.data[0].id;
                     const detailRes = await fetch(`${API_BASE}/lists/${listId}`);
                     const detailData = await detailRes.json();
@@ -384,11 +396,8 @@
                     appState.listData = detailData.data;
                     appState.items = appState.listData.items.map(i => i.name);
                     
-                    // Affichage initial (Apprendre) - Forcer l'affichage
+                    // Affichage initial (Apprendre)
                     viewListDetails(appState.listData);
-                } else {
-                    document.getElementById('error').textContent = "Aucune liste trouvée (Vérifiez le seed).";
-                    document.getElementById('error').style.display = 'block';
                 }
             } catch (e) {
                 console.error("Erreur chargement", e);
@@ -445,7 +454,7 @@
             appState.game.found = new Set();
             appState.game.timeLeft = 60;
             appState.game.isPlaying = false;
-            
+
             // Configuration des joueurs
             if (selectedGameMode === 'duel_friend') {
                 appState.game.players = Array.from({length: appState.game.playerCount}, (_, i) => `p${i+1}`);
@@ -480,27 +489,35 @@
             document.getElementById('auction-area').style.display = 'block';
             appState.game.currentBid = 0;
             appState.game.bidHolder = null;
-            appState.game.turnIndex = 0; // Le premier joueur commence
+            appState.game.turn = appState.game.players[0]; // Le premier joueur commence
+            appState.game.turnIndex = 0;
+            appState.game.foldedPlayers = new Set(); // Joueurs qui se sont couchés
             
             updateAuctionUI();
-            logAuction("Le duel commence ! Qui dit mieux ?");
+            logAuction("🎲 Le duel commence ! Qui dit mieux ?");
         }
 
         function updateAuctionUI() {
             document.getElementById('current-bid').textContent = appState.game.currentBid;
             
-            const currentPlayer = appState.game.players[appState.game.turnIndex];
+            const activePlayers = appState.game.players.filter(p => !appState.game.foldedPlayers.has(p));
+            
+            // Si un seul joueur actif reste
+            if (activePlayers.length === 1) {
+                setTimeout(() => endAuction(), 800);
+                return;
+            }
             
             // Si c'est au tour de l'IA
-            if (currentPlayer === 'ai') {
+            if (appState.game.turn === 'ai') {
                 document.getElementById('auction-controls').style.display = 'none';
-                document.getElementById('auction-status').textContent = "L'IA réfléchit...";
+                document.getElementById('auction-status').textContent = "🤖 L'IA réfléchit...";
                 setTimeout(aiBidTurn, 1500);
             } else {
                 document.getElementById('auction-controls').style.display = 'block';
-                const label = getPlayerLabel(currentPlayer);
+                const label = getPlayerLabel(appState.game.turn);
                 document.getElementById('auction-status').innerHTML = 
-                    `C'est à <span style="color:#667eea">${label}</span> d'enchérir !`;
+                    `C'est à <span style="color:#667eea;font-weight:bold">${label}</span> d'enchérir !`;
             }
         }
 
@@ -512,10 +529,9 @@
             }
             
             appState.game.currentBid = newBid;
-            const currentPlayer = appState.game.players[appState.game.turnIndex];
-            appState.game.bidHolder = currentPlayer;
+            appState.game.bidHolder = appState.game.turn;
             
-            const playerLabel = getPlayerLabel(currentPlayer);
+            const playerLabel = getPlayerLabel(appState.game.turn);
             logAuction(`${playerLabel} monte à ${newBid} pays !`, 'player');
 
             // Passer la main
@@ -523,28 +539,42 @@
         }
 
         function fold() {
-            const currentPlayer = appState.game.players[appState.game.turnIndex];
-            const playerLabel = getPlayerLabel(currentPlayer);
+            const playerLabel = getPlayerLabel(appState.game.turn);
             logAuction(`${playerLabel} se couche !`, 'player');
+            
+            appState.game.foldedPlayers.add(appState.game.turn);
             
             if (appState.game.bidHolder === null) {
                 // Personne n'a encore enchéri
                 alert("Il faut au moins une enchère !");
+                appState.game.foldedPlayers.delete(appState.game.turn);
                 return;
             }
 
-            // Si on se couche, c'est celui qui tient l'enchère qui doit jouer
-            endAuction();
+            switchTurn();
         }
 
         function switchTurn() {
-            appState.game.turnIndex = (appState.game.turnIndex + 1) % appState.game.players.length;
+            let nextIndex = (appState.game.turnIndex + 1) % appState.game.players.length;
+            let attempts = 0;
+            
+            // Trouver le prochain joueur actif
+            while (appState.game.foldedPlayers.has(appState.game.players[nextIndex]) && attempts < appState.game.players.length) {
+                nextIndex = (nextIndex + 1) % appState.game.players.length;
+                attempts++;
+            }
+            
+            appState.game.turnIndex = nextIndex;
+            appState.game.turn = appState.game.players[nextIndex];
             updateAuctionUI();
         }
 
         function getPlayerLabel(code) {
             if (code === 'ai') return 'L\'Ordinateur';
-            if (code.startsWith('p')) return `Joueur ${code.substring(1)}`;
+            if (code.startsWith('p')) {
+                const num = parseInt(code.substring(1));
+                return `Joueur ${num}`;
+            }
             return code;
         }
 
@@ -579,21 +609,12 @@
                 appState.game.currentBid += raise;
                 appState.game.bidHolder = 'ai';
                 logAuction(`L'IA monte à ${appState.game.currentBid} pays !`, 'ai');
-                
-                // Passer la main
                 switchTurn();
             } else {
                 // L'IA se couche
-                logAuction("L'IA se couche. À toi de jouer !", 'ai');
-                
-                // C'est fini pour l'IA, le joueur (bidHolder) doit jouer
-                if (appState.game.bidHolder === 'ai') {
-                   // Si l'IA tenait l'enchère et se couche contre elle-même (impossible logiquement mais bon)
-                   endAuction();
-                } else {
-                   // Le joueur a gagné l'enchère
-                   endAuction();
-                }
+                logAuction("L'IA se couche !", 'ai');
+                appState.game.foldedPlayers.add('ai');
+                switchTurn();
             }
         }
 
@@ -735,9 +756,20 @@
             document.getElementById('score').textContent = '0';
             document.getElementById('auction-log').innerHTML = '';
             appState.game.found = new Set();
+            appState.game.foldedPlayers = new Set();
+            appState.game.turnIndex = 0;
         }
 
         // --- AFFICHAGE APPRENDRE ---
+        function formatMetadata(metadata) {
+            return Object.entries(metadata).slice(0, 2).map(([key, value]) => {
+                if (key === 'capital') return `Capitale : ${value}`;
+                if (key === 'population') return `${(value / 1000000).toFixed(1)}M hab.`;
+                if (key === 'region') return `${value}`;
+                return String(value).substring(0, 20);
+            }).join(' • ');
+        }
+
         function viewListDetails(list) {
             const listDetails = document.getElementById('list-details');
             listDetails.style.display = 'block';
