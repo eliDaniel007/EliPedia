@@ -186,12 +186,6 @@ async function seedDatabase() {
         continue;
       }
 
-      // Ignorer les fichiers sans listes
-      if (!data.lists || data.lists.length === 0) {
-        console.log(`  ⚠️  Fichier ignoré (pas de listes): ${file}`);
-        continue;
-      }
-
       // Créer ou trouver la catégorie
       const categoryId = await findOrCreateCategory(client, data.category);
       totalCategories++;
