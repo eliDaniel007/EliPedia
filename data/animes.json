@@ -2,380 +2,217 @@
   "category": "Animés",
   "lists": [
     {
-      "name": "Personnages de Naruto",
-      "description": "Les personnages principaux et secondaires de la série Naruto",
+      "name": "Personnages de Naruto (Complet)",
+      "description": "Tous les personnages de l'univers Naruto - Plus de 400 noms",
       "items": [
-        {
-          "name": "Naruto Uzumaki",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Hokage",
-            "clan": "Uzumaki",
-            "equipe": "Équipe 7"
-          }
-        },
-        {
-          "name": "Sasuke Uchiwa",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin",
-            "clan": "Uchiwa",
-            "equipe": "Équipe 7"
-          }
-        },
-        {
-          "name": "Sakura Haruno",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Chûnin",
-            "clan": "Aucun",
-            "equipe": "Équipe 7"
-          }
-        },
-        {
-          "name": "Kakashi Hatake",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Jônin → Hokage",
-            "clan": "Hatake",
-            "equipe": "Leader Équipe 7"
-          }
-        },
-        {
-          "name": "Rock Lee",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Chûnin",
-            "clan": "Aucun",
-            "equipe": "Équipe Gaï"
-          }
-        },
-        {
-          "name": "Neji Hyûga",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Jônin",
-            "clan": "Hyûga",
-            "equipe": "Équipe Gaï"
-          }
-        },
-        {
-          "name": "Tenten",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Chûnin",
-            "clan": "Aucun",
-            "equipe": "Équipe Gaï"
-          }
-        },
-        {
-          "name": "Shikamaru Nara",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Chûnin",
-            "clan": "Nara",
-            "equipe": "Équipe 10"
-          }
-        },
-        {
-          "name": "Ino Yamanaka",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Chûnin",
-            "clan": "Yamanaka",
-            "equipe": "Équipe 10"
-          }
-        },
-        {
-          "name": "Chôji Akimichi",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Chûnin",
-            "clan": "Akimichi",
-            "equipe": "Équipe 10"
-          }
-        },
-        {
-          "name": "Hinata Hyûga",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Chûnin",
-            "clan": "Hyûga",
-            "equipe": "Équipe 8"
-          }
-        },
-        {
-          "name": "Kiba Inuzuka",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Chûnin",
-            "clan": "Inuzuka",
-            "equipe": "Équipe 8"
-          }
-        },
-        {
-          "name": "Shino Aburame",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Chûnin",
-            "clan": "Aburame",
-            "equipe": "Équipe 8"
-          }
-        },
-        {
-          "name": "Gaara",
-          "metadata": {
-            "village": "Suna",
-            "rang": "Genin → Kazekage",
-            "clan": "Aucun",
-            "equipe": "Fratrie du Sable"
-          }
-        },
-        {
-          "name": "Temari",
-          "metadata": {
-            "village": "Suna",
-            "rang": "Genin → Jônin",
-            "clan": "Aucun",
-            "equipe": "Fratrie du Sable"
-          }
-        },
-        {
-          "name": "Kankurô",
-          "metadata": {
-            "village": "Suna",
-            "rang": "Genin → Jônin",
-            "clan": "Aucun",
-            "equipe": "Fratrie du Sable"
-          }
-        },
-        {
-          "name": "Jiraya",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Sannin",
-            "clan": "Aucun",
-            "equipe": "Sannin Légendaires"
-          }
-        },
-        {
-          "name": "Tsunade",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Sannin → Hokage",
-            "clan": "Senju",
-            "equipe": "Sannin Légendaires"
-          }
-        },
-        {
-          "name": "Orochimaru",
-          "metadata": {
-            "village": "Konoha → Oto",
-            "rang": "Sannin",
-            "clan": "Aucun",
-            "equipe": "Sannin Légendaires"
-          }
-        },
-        {
-          "name": "Itachi Uchiwa",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "ANBU → Nukenin",
-            "clan": "Uchiwa",
-            "equipe": "Akatsuki"
-          }
-        },
-        {
-          "name": "Kisame Hoshigaki",
-          "metadata": {
-            "village": "Kiri",
-            "rang": "Nukenin",
-            "clan": "Hoshigaki",
-            "equipe": "Akatsuki"
-          }
-        },
-        {
-          "name": "Pain (Nagato)",
-          "metadata": {
-            "village": "Ame",
-            "rang": "Leader",
-            "clan": "Uzumaki",
-            "equipe": "Akatsuki"
-          }
-        },
-        {
-          "name": "Konan",
-          "metadata": {
-            "village": "Ame",
-            "rang": "Nukenin",
-            "clan": "Aucun",
-            "equipe": "Akatsuki"
-          }
-        },
-        {
-          "name": "Deidara",
-          "metadata": {
-            "village": "Iwa",
-            "rang": "Nukenin",
-            "clan": "Aucun",
-            "equipe": "Akatsuki"
-          }
-        },
-        {
-          "name": "Sasori",
-          "metadata": {
-            "village": "Suna",
-            "rang": "Nukenin",
-            "clan": "Aucun",
-            "equipe": "Akatsuki"
-          }
-        },
-        {
-          "name": "Hidan",
-          "metadata": {
-            "village": "Yu",
-            "rang": "Nukenin",
-            "clan": "Aucun",
-            "equipe": "Akatsuki"
-          }
-        },
-        {
-          "name": "Kakuzu",
-          "metadata": {
-            "village": "Taki",
-            "rang": "Nukenin",
-            "clan": "Aucun",
-            "equipe": "Akatsuki"
-          }
-        },
-        {
-          "name": "Madara Uchiwa",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Fondateur",
-            "clan": "Uchiwa",
-            "equipe": "Aucune"
-          }
-        },
-        {
-          "name": "Obito Uchiwa",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Chûnin → Nukenin",
-            "clan": "Uchiwa",
-            "equipe": "Équipe Minato"
-          }
-        },
-        {
-          "name": "Minato Namikaze",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Jônin → Hokage",
-            "clan": "Namikaze",
-            "equipe": "Leader"
-          }
-        },
-        {
-          "name": "Kushina Uzumaki",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Chûnin",
-            "clan": "Uzumaki",
-            "equipe": "Aucune"
-          }
-        },
-        {
-          "name": "Hiruzen Sarutobi",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Hokage",
-            "clan": "Sarutobi",
-            "equipe": "Leader"
-          }
-        },
-        {
-          "name": "Tobirama Senju",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Hokage",
-            "clan": "Senju",
-            "equipe": "Fondateur"
-          }
-        },
-        {
-          "name": "Hashirama Senju",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Hokage",
-            "clan": "Senju",
-            "equipe": "Fondateur"
-          }
-        },
-        {
-          "name": "Zabuza Momochi",
-          "metadata": {
-            "village": "Kiri",
-            "rang": "Jônin → Nukenin",
-            "clan": "Momochi",
-            "equipe": "Aucune"
-          }
-        },
-        {
-          "name": "Haku",
-          "metadata": {
-            "village": "Kiri",
-            "rang": "Nukenin",
-            "clan": "Yuki",
-            "equipe": "Zabuza"
-          }
-        },
-        {
-          "name": "Killer B",
-          "metadata": {
-            "village": "Kumo",
-            "rang": "Jônin",
-            "clan": "Aucun",
-            "equipe": "Jinchûriki"
-          }
-        },
-        {
-          "name": "Yamato",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "ANBU → Jônin",
-            "clan": "Aucun",
-            "equipe": "Équipe Kakashi"
-          }
-        },
-        {
-          "name": "Saï",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "ANBU → Chûnin",
-            "clan": "Aucun",
-            "equipe": "Équipe 7"
-          }
-        },
-        {
-          "name": "Kabuto Yakushi",
-          "metadata": {
-            "village": "Konoha → Oto",
-            "rang": "Genin → Nukenin",
-            "clan": "Aucun",
-            "equipe": "Orochimaru"
-          }
-        },
-        {
-          "name": "Konohamaru Sarutobi",
-          "metadata": {
-            "village": "Konoha",
-            "rang": "Genin → Jônin",
-            "clan": "Sarutobi",
-            "equipe": "Équipe Konohamaru"
-          }
-        }
+        {"name": "A", "metadata": {"village": "Kumo", "rang": "Raikage"}},
+        {"name": "Agari Kaisen", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Aino", "metadata": {"village": "Inconnu", "rang": "Inconnu"}},
+        {"name": "Ajisai", "metadata": {"village": "Ame", "rang": "Genin"}},
+        {"name": "Akaboshi", "metadata": {"village": "Inconnu", "rang": "Inconnu"}},
+        {"name": "Akahige", "metadata": {"village": "Konoha", "rang": "Inconnu"}},
+        {"name": "Akahoshi", "metadata": {"village": "Hoshi", "rang": "Leader"}},
+        {"name": "Akamaru", "metadata": {"village": "Konoha", "rang": "Ninken"}},
+        {"name": "Amaï", "metadata": {"village": "Kumo", "rang": "Chûnin"}},
+        {"name": "Ameno", "metadata": {"village": "Ame", "rang": "Inconnu"}},
+        {"name": "Ameyuri Ringo", "metadata": {"village": "Kiri", "rang": "Jônin"}},
+        {"name": "Ami", "metadata": {"village": "Konoha", "rang": "Civile"}},
+        {"name": "Anko Mitarashi", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Aoba Yamashiro", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Aoi Rokushô", "metadata": {"village": "Ame", "rang": "Nukenin"}},
+        {"name": "Ao", "metadata": {"village": "Kiri", "rang": "Jônin"}},
+        {"name": "Arashi", "metadata": {"village": "Inconnu", "rang": "Inconnu"}},
+        {"name": "Asuma Sarutobi", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Atsui", "metadata": {"village": "Kumo", "rang": "Jônin"}},
+        {"name": "Azuma", "metadata": {"village": "Konoha", "rang": "Inconnu"}},
+        {"name": "Baki", "metadata": {"village": "Suna", "rang": "Jônin"}},
+        {"name": "Biwako Sarutobi", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Black Zetsu", "metadata": {"village": "Aucun", "rang": "Créature"}},
+        {"name": "Boruto Uzumaki", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Buntan Kurosuki", "metadata": {"village": "Kiri", "rang": "Chûnin"}},
+        {"name": "Buru", "metadata": {"village": "Inconnu", "rang": "Inconnu"}},
+        {"name": "C", "metadata": {"village": "Kumo", "rang": "Jônin"}},
+        {"name": "Chino", "metadata": {"village": "Inconnu", "rang": "Inconnu"}},
+        {"name": "Chiyo", "metadata": {"village": "Suna", "rang": "Ancienne"}},
+        {"name": "Chôchô Akimichi", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Chôji Akimichi", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Chôjûrô", "metadata": {"village": "Kiri", "rang": "Mizukage"}},
+        {"name": "Chôza Akimichi", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Daibutsu", "metadata": {"village": "Konoha", "rang": "Inconnu"}},
+        {"name": "Daï", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Dan Katô", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Danzô Shimura", "metadata": {"village": "Konoha", "rang": "Ancien"}},
+        {"name": "Darui", "metadata": {"village": "Kumo", "rang": "Raikage"}},
+        {"name": "Deidara", "metadata": {"village": "Iwa", "rang": "Nukenin"}},
+        {"name": "Denki Kaminarimon", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Dosu Kinuta", "metadata": {"village": "Oto", "rang": "Genin"}},
+        {"name": "Ebisu", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Ebizô", "metadata": {"village": "Suna", "rang": "Ancien"}},
+        {"name": "Fû", "metadata": {"village": "Taki", "rang": "Genin"}},
+        {"name": "Fubuki Kakuyoku", "metadata": {"village": "Yukigakure", "rang": "Inconnu"}},
+        {"name": "Fugaku Uchiwa", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Fûshin", "metadata": {"village": "Inconnu", "rang": "Inconnu"}},
+        {"name": "Gaara", "metadata": {"village": "Suna", "rang": "Kazekage"}},
+        {"name": "Gamabunta", "metadata": {"village": "Mont Myôboku", "rang": "Invocation"}},
+        {"name": "Gamakichi", "metadata": {"village": "Mont Myôboku", "rang": "Invocation"}},
+        {"name": "Genma Shiranui", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Gennô", "metadata": {"village": "Konoha", "rang": "Inconnu"}},
+        {"name": "Gengo", "metadata": {"village": "Inconnu", "rang": "Leader"}},
+        {"name": "Ginkaku", "metadata": {"village": "Kumo", "rang": "Jônin"}},
+        {"name": "Gozu", "metadata": {"village": "Inconnu", "rang": "Inconnu"}},
+        {"name": "Guruguru", "metadata": {"village": "Aucun", "rang": "Zetsu"}},
+        {"name": "Guy Might", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Gyûki", "metadata": {"village": "Kumo", "rang": "Bijû"}},
+        {"name": "Haku", "metadata": {"village": "Kiri", "rang": "Nukenin"}},
+        {"name": "Hamura Ôtsutsuki", "metadata": {"village": "Aucun", "rang": "Ôtsutsuki"}},
+        {"name": "Han", "metadata": {"village": "Iwa", "rang": "Jônin"}},
+        {"name": "Hanabi Hyûga", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Hana Inuzuka", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Hanare", "metadata": {"village": "Inconnu", "rang": "Espionne"}},
+        {"name": "Hanzô", "metadata": {"village": "Ame", "rang": "Leader"}},
+        {"name": "Hayate Gekkô", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Hidan", "metadata": {"village": "Yu", "rang": "Nukenin"}},
+        {"name": "Himawari Uzumaki", "metadata": {"village": "Konoha", "rang": "Civile"}},
+        {"name": "Hinata Hyûga", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Hiruzen Sarutobi", "metadata": {"village": "Konoha", "rang": "Hokage"}},
+        {"name": "Hizashi Hyûga", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Hidan", "metadata": {"village": "Yu", "rang": "Nukenin"}},
+        {"name": "Homura Mitokado", "metadata": {"village": "Konoha", "rang": "Ancien"}},
+        {"name": "Hôki Taketori", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Ibiki Morino", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Idate Morino", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Inoichi Yamanaka", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Ino Yamanaka", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Inojin Yamanaka", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Iruka Umino", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Isaribi", "metadata": {"village": "Umi", "rang": "Inconnu"}},
+        {"name": "Ishikawa", "metadata": {"village": "Iwa", "rang": "Tsuchikage"}},
+        {"name": "Isshiki Ôtsutsuki", "metadata": {"village": "Aucun", "rang": "Ôtsutsuki"}},
+        {"name": "Itachi Uchiwa", "metadata": {"village": "Konoha", "rang": "ANBU"}},
+        {"name": "Iwabee Yuino", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Iwashi Tatami", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Izumo Kamizuki", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Izuna Uchiwa", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Jigen", "metadata": {"village": "Aucun", "rang": "Kara"}},
+        {"name": "Jiraya", "metadata": {"village": "Konoha", "rang": "Sannin"}},
+        {"name": "Jirôbô", "metadata": {"village": "Oto", "rang": "Genin"}},
+        {"name": "Jûgo", "metadata": {"village": "Aucun", "rang": "Nukenin"}},
+        {"name": "Kabuto Yakushi", "metadata": {"village": "Konoha", "rang": "Nukenin"}},
+        {"name": "Kagami Uchiwa", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Kaguya Ôtsutsuki", "metadata": {"village": "Aucun", "rang": "Ôtsutsuki"}},
+        {"name": "Kakashi Hatake", "metadata": {"village": "Konoha", "rang": "Hokage"}},
+        {"name": "Kakuzu", "metadata": {"village": "Taki", "rang": "Nukenin"}},
+        {"name": "Kankurô", "metadata": {"village": "Suna", "rang": "Jônin"}},
+        {"name": "Karin", "metadata": {"village": "Kusa", "rang": "Nukenin"}},
+        {"name": "Karui", "metadata": {"village": "Kumo", "rang": "Chûnin"}},
+        {"name": "Kashin Koji", "metadata": {"village": "Aucun", "rang": "Kara"}},
+        {"name": "Katsuyu", "metadata": {"village": "Shikkotsu", "rang": "Invocation"}},
+        {"name": "Kawaki", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Kiba Inuzuka", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Kidomaru", "metadata": {"village": "Oto", "rang": "Genin"}},
+        {"name": "Killer B", "metadata": {"village": "Kumo", "rang": "Jônin"}},
+        {"name": "Kimimaro", "metadata": {"village": "Oto", "rang": "Jônin"}},
+        {"name": "Kin Tsuchi", "metadata": {"village": "Oto", "rang": "Genin"}},
+        {"name": "Kinkaku", "metadata": {"village": "Kumo", "rang": "Jônin"}},
+        {"name": "Kisame Hoshigaki", "metadata": {"village": "Kiri", "rang": "Nukenin"}},
+        {"name": "Kitsuchi", "metadata": {"village": "Iwa", "rang": "Jônin"}},
+        {"name": "Kô Hyûga", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Koharu Utatane", "metadata": {"village": "Konoha", "rang": "Ancienne"}},
+        {"name": "Konan", "metadata": {"village": "Ame", "rang": "Nukenin"}},
+        {"name": "Konohamaru Sarutobi", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Kotetsu Hagane", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Kurama", "metadata": {"village": "Konoha", "rang": "Bijû"}},
+        {"name": "Kurenaï Yûhi", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Kurotsuchi", "metadata": {"village": "Iwa", "rang": "Tsuchikage"}},
+        {"name": "Kushina Uzumaki", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Madara Uchiwa", "metadata": {"village": "Konoha", "rang": "Fondateur"}},
+        {"name": "Manda", "metadata": {"village": "Ryûchi", "rang": "Invocation"}},
+        {"name": "Mangetsu Hôzuki", "metadata": {"village": "Kiri", "rang": "Jônin"}},
+        {"name": "Matatabi", "metadata": {"village": "Kumo", "rang": "Bijû"}},
+        {"name": "Meï Terumî", "metadata": {"village": "Kiri", "rang": "Mizukage"}},
+        {"name": "Metal Lee", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Might Daï", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Mikoto Uchiwa", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Minato Namikaze", "metadata": {"village": "Konoha", "rang": "Hokage"}},
+        {"name": "Mirai Sarutobi", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Misumi Tsurugi", "metadata": {"village": "Oto", "rang": "Genin"}},
+        {"name": "Mitsuki", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Mito Uzumaki", "metadata": {"village": "Konoha", "rang": "Ancienne"}},
+        {"name": "Mizuki", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Moegi Kazamatsuri", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Momoshiki Ôtsutsuki", "metadata": {"village": "Aucun", "rang": "Ôtsutsuki"}},
+        {"name": "Mû", "metadata": {"village": "Iwa", "rang": "Tsuchikage"}},
+        {"name": "Muta Aburame", "metadata": {"village": "Konoha", "rang": "Inconnu"}},
+        {"name": "Nagato", "metadata": {"village": "Ame", "rang": "Leader"}},
+        {"name": "Naruto Uzumaki", "metadata": {"village": "Konoha", "rang": "Hokage"}},
+        {"name": "Nawaki", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Neji Hyûga", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Obito Uchiwa", "metadata": {"village": "Konoha", "rang": "Nukenin"}},
+        {"name": "Ôgama Sennin", "metadata": {"village": "Mont Myôboku", "rang": "Sage"}},
+        {"name": "Ômoi", "metadata": {"village": "Kumo", "rang": "Jônin"}},
+        {"name": "Ônoki", "metadata": {"village": "Iwa", "rang": "Tsuchikage"}},
+        {"name": "Orochimaru", "metadata": {"village": "Oto", "rang": "Sannin"}},
+        {"name": "Pakkun", "metadata": {"village": "Konoha", "rang": "Ninken"}},
+        {"name": "Pain", "metadata": {"village": "Ame", "rang": "Leader"}},
+        {"name": "Pakura", "metadata": {"village": "Suna", "rang": "Jônin"}},
+        {"name": "Raidô Namiashi", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Raïga Kurosuki", "metadata": {"village": "Kiri", "rang": "Jônin"}},
+        {"name": "Rasa", "metadata": {"village": "Suna", "rang": "Kazekage"}},
+        {"name": "Rin Nohara", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Rock Lee", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Rôshi", "metadata": {"village": "Iwa", "rang": "Jônin"}},
+        {"name": "Saï", "metadata": {"village": "Konoha", "rang": "ANBU"}},
+        {"name": "Saiken", "metadata": {"village": "Kiri", "rang": "Bijû"}},
+        {"name": "Sakumo Hatake", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Sakura Haruno", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Samui", "metadata": {"village": "Kumo", "rang": "Jônin"}},
+        {"name": "Sarada Uchiwa", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Sasori", "metadata": {"village": "Suna", "rang": "Nukenin"}},
+        {"name": "Sasuke Uchiwa", "metadata": {"village": "Konoha", "rang": "Nukenin"}},
+        {"name": "Shamon", "metadata": {"village": "Suna", "rang": "Kazekage"}},
+        {"name": "Shikadaï Nara", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Shikaku Nara", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Shikamaru Nara", "metadata": {"village": "Konoha", "rang": "Conseiller"}},
+        {"name": "Shima", "metadata": {"village": "Mont Myôboku", "rang": "Sage"}},
+        {"name": "Shin Uchiwa", "metadata": {"village": "Aucun", "rang": "Clone"}},
+        {"name": "Shino Aburame", "metadata": {"village": "Konoha", "rang": "Chûnin"}},
+        {"name": "Shiranui Genma", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Shisui Uchiwa", "metadata": {"village": "Konoha", "rang": "ANBU"}},
+        {"name": "Shizune", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Shukaku", "metadata": {"village": "Suna", "rang": "Bijû"}},
+        {"name": "Son Gokû", "metadata": {"village": "Iwa", "rang": "Bijû"}},
+        {"name": "Suigetsu Hôzuki", "metadata": {"village": "Kiri", "rang": "Nukenin"}},
+        {"name": "Sumire Kakei", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "Taiseki", "metadata": {"village": "Iwa", "rang": "Jônin"}},
+        {"name": "Tayuya", "metadata": {"village": "Oto", "rang": "Genin"}},
+        {"name": "Tazuna", "metadata": {"village": "Nami", "rang": "Civil"}},
+        {"name": "Temari", "metadata": {"village": "Suna", "rang": "Jônin"}},
+        {"name": "Tenten", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Teuchi", "metadata": {"village": "Konoha", "rang": "Civil"}},
+        {"name": "Tobirama Senju", "metadata": {"village": "Konoha", "rang": "Hokage"}},
+        {"name": "Toneri Ôtsutsuki", "metadata": {"village": "Aucun", "rang": "Ôtsutsuki"}},
+        {"name": "Torune Aburame", "metadata": {"village": "Konoha", "rang": "ANBU"}},
+        {"name": "Tsubaki Kurogane", "metadata": {"village": "Tetsumaki", "rang": "Genin"}},
+        {"name": "Tsuchikage (Ishikawa)", "metadata": {"village": "Iwa", "rang": "Tsuchikage"}},
+        {"name": "Tsunami", "metadata": {"village": "Nami", "rang": "Civile"}},
+        {"name": "Tsunade", "metadata": {"village": "Konoha", "rang": "Hokage"}},
+        {"name": "Tsume Inuzuka", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Udon", "metadata": {"village": "Konoha", "rang": "Jônin"}},
+        {"name": "Urashiki Ôtsutsuki", "metadata": {"village": "Aucun", "rang": "Ôtsutsuki"}},
+        {"name": "Utakata", "metadata": {"village": "Kiri", "rang": "Nukenin"}},
+        {"name": "Wasabi Izuno", "metadata": {"village": "Konoha", "rang": "Genin"}},
+        {"name": "White Zetsu", "metadata": {"village": "Aucun", "rang": "Créature"}},
+        {"name": "Yagura Karatachi", "metadata": {"village": "Kiri", "rang": "Mizukage"}},
+        {"name": "Yahiko", "metadata": {"village": "Ame", "rang": "Leader"}},
+        {"name": "Yamato", "metadata": {"village": "Konoha", "rang": "ANBU"}},
+        {"name": "Yashamaru", "metadata": {"village": "Suna", "rang": "Jônin"}},
+        {"name": "Yome", "metadata": {"village": "Suna", "rang": "Chûnin"}},
+        {"name": "Yûgao Uzuki", "metadata": {"village": "Konoha", "rang": "ANBU"}},
+        {"name": "Yugito Nii", "metadata": {"village": "Kumo", "rang": "Jônin"}},
+        {"name": "Zabuza Momochi", "metadata": {"village": "Kiri", "rang": "Nukenin"}},
+        {"name": "Zaku Abumi", "metadata": {"village": "Oto", "rang": "Genin"}},
+        {"name": "Zetsu", "metadata": {"village": "Aucun", "rang": "Akatsuki"}}
       ]
     }
   ]
 }
-
