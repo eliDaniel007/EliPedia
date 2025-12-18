@@ -335,11 +335,25 @@
                     </div>
                 </div>
 
-                <div id="theme-selector" style="text-align: center; margin-top: 35px;">
-                    <h3 style="color: #2d3748; margin-bottom: 20px; font-size: 1.3em; font-weight: 600;">📚 Choisissez le thème</h3>
+                <div id="category-selector" style="text-align: center; margin-top: 35px;">
+                    <h3 style="color: #2d3748; margin-bottom: 20px; font-size: 1.3em; font-weight: 600;">📚 Choisissez la catégorie</h3>
                     <div class="difficulty-selector">
-                        <div class="diff-btn active" onclick="setTheme('pays')">🌍 Pays d'Afrique</div>
-                        <div class="diff-btn" onclick="setTheme('capitales')">🏛️ Capitales</div>
+                        <div class="diff-btn active" onclick="selectCategory('geographie')">🌍 Géographie</div>
+                        <div class="diff-btn" onclick="selectCategory('animes')">🎌 Animés</div>
+                    </div>
+                </div>
+
+                <div id="list-selector" style="text-align: center; margin-top: 35px;">
+                    <h3 style="color: #2d3748; margin-bottom: 20px; font-size: 1.3em; font-weight: 600;">📝 Choisissez la liste</h3>
+                    <div class="difficulty-selector" id="list-options">
+                        <!-- Chargé dynamiquement -->
+                    </div>
+                </div>
+
+                <div id="theme-selector" style="display: none; text-align: center; margin-top: 35px;">
+                    <h3 style="color: #2d3748; margin-bottom: 20px; font-size: 1.3em; font-weight: 600;">🎯 Variante</h3>
+                    <div class="difficulty-selector" id="theme-options">
+                        <!-- Chargé dynamiquement selon la liste -->
                     </div>
                 </div>
 
@@ -422,11 +436,14 @@
         let appState = {
             mode: 'learn', // 'learn' | 'play'
             categories: [],
+            allLists: [],
             listData: null,
-            items: [], // Liste normalisée des pays
+            items: [], // Liste normalisée
             game: {
                 type: null, // 'solo' | 'duel_ai' | 'duel_friend'
-                theme: 'pays', // 'pays' | 'capitales'
+                selectedCategory: 'geographie',
+                selectedListId: null,
+                theme: 'base', // 'base' | variantes spécifiques
                 difficulty: 'easy',
                 playerCount: 2,
                 players: [], // ['p1', 'p2', 'p3', ...]
@@ -544,24 +561,109 @@
 
         async function loadData() {
             try {
-                // Charger la liste des pays (ID 1 par défaut ou via API)
-                const res = await fetch(`${API_BASE}/lists`);
-                const data = await res.json();
-                if (data.data.length > 0) {
-                    const listId = data.data[0].id;
-                    const detailRes = await fetch(`${API_BASE}/lists/${listId}`);
-                    const detailData = await detailRes.json();
-                    
-                    appState.listData = detailData.data;
-                    appState.items = appState.listData.items.map(i => i.name);
+                // Charger toutes les catégories et listes
+                const catRes = await fetch(`${API_BASE}/categories`);
+                const catData = await catRes.json();
+                appState.categories = catData.data;
+
+                const listRes = await fetch(`${API_BASE}/lists`);
+                const listData = await listRes.json();
+                appState.allLists = listData.data;
+                
+                if (appState.allLists.length > 0) {
+                    // Par défaut, charger la première liste (Pays d'Afrique)
+                    const listId = appState.allLists[0].id;
+                    await loadListById(listId);
                     
                     // Affichage initial (Apprendre)
                     viewListDetails(appState.listData);
                 }
+                
+                // Charger les options de listes pour le jeu
+                await loadListOptions();
             } catch (e) {
                 console.error("Erreur chargement", e);
                 document.getElementById('error').textContent = "Erreur de connexion au serveur.";
                 document.getElementById('error').style.display = 'block';
+            }
+        }
+
+        async function loadListById(listId) {
+            const detailRes = await fetch(`${API_BASE}/lists/${listId}`);
+            const detailData = await detailRes.json();
+            appState.listData = detailData.data;
+            appState.items = appState.listData.items.map(i => i.name);
+        }
+
+        async function loadListOptions() {
+            const geoLists = appState.allLists.filter(l => l.category_name?.toLowerCase() === 'géographie');
+            const animeLists = appState.allLists.filter(l => l.category_name?.toLowerCase() === 'animés');
+            
+            appState.listsByCategory = {
+                geographie: geoLists,
+                animes: animeLists
+            };
+            
+            // Charger les options de la catégorie par défaut
+            updateListOptions('geographie');
+        }
+
+        function updateListOptions(category) {
+            const container = document.getElementById('list-options');
+            const lists = appState.listsByCategory[category] || [];
+            
+            if (lists.length === 0) {
+                container.innerHTML = '<p style="color:#999">Aucune liste disponible</p>';
+                return;
+            }
+            
+            container.innerHTML = lists.map((list, idx) => `
+                <div class="diff-btn ${idx === 0 ? 'active' : ''}" onclick="selectList(${list.id})">
+                    ${list.name}
+                </div>
+            `).join('');
+            
+            // Sélectionner la première liste par défaut
+            if (lists.length > 0) {
+                appState.game.selectedListId = lists[0].id;
+                updateThemeOptions(lists[0]);
+            }
+        }
+
+        function updateThemeOptions(list) {
+            const themeContainer = document.getElementById('theme-options');
+            const themeSelector = document.getElementById('theme-selector');
+            
+            // Si c'est géographie, on peut jouer avec pays ou capitales
+            if (list.category_name?.toLowerCase() === 'géographie') {
+                themeSelector.style.display = 'block';
+                themeContainer.innerHTML = `
+                    <div class="diff-btn active" onclick="setTheme('base')">🌍 Pays</div>
+                    <div class="diff-btn" onclick="setTheme('capitales')">🏛️ Capitales</div>
+                `;
+                appState.game.theme = 'base';
+            } else {
+                // Pour les autres catégories, pas de variante
+                themeSelector.style.display = 'none';
+                appState.game.theme = 'base';
+            }
+        }
+
+        function selectCategory(category) {
+            appState.game.selectedCategory = category;
+            document.querySelectorAll('#category-selector .diff-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            updateListOptions(category);
+        }
+
+        function selectList(listId) {
+            appState.game.selectedListId = listId;
+            document.querySelectorAll('#list-options .diff-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const list = appState.allLists.find(l => l.id === listId);
+            if (list) {
+                updateThemeOptions(list);
             }
         }
 
@@ -610,15 +712,18 @@
 
         function setTheme(theme) {
             appState.game.theme = theme;
-            document.querySelectorAll('#theme-selector .diff-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('#theme-options .diff-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
         }
 
-        function initGameSession() {
+        async function initGameSession() {
             appState.game.type = selectedGameMode;
             appState.game.found = new Set();
             appState.game.timeLeft = 60;
             appState.game.isPlaying = false;
+
+            // Charger la liste sélectionnée
+            await loadListById(appState.game.selectedListId);
 
             // Préparer les items selon le thème choisi
             if (appState.game.theme === 'capitales') {
@@ -627,7 +732,7 @@
                     .map(item => item.metadata?.capital)
                     .filter(cap => cap); // Enlever les valeurs vides
             } else {
-                // Pays par défaut
+                // Base : les noms d'items
                 appState.items = appState.listData.items.map(i => i.name);
             }
 

@@ -1,0 +1,381 @@
+{
+  "category": "Animés",
+  "lists": [
+    {
+      "name": "Personnages de Naruto",
+      "description": "Les personnages principaux et secondaires de la série Naruto",
+      "items": [
+        {
+          "name": "Naruto Uzumaki",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Hokage",
+            "clan": "Uzumaki",
+            "equipe": "Équipe 7"
+          }
+        },
+        {
+          "name": "Sasuke Uchiwa",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin",
+            "clan": "Uchiwa",
+            "equipe": "Équipe 7"
+          }
+        },
+        {
+          "name": "Sakura Haruno",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Chûnin",
+            "clan": "Aucun",
+            "equipe": "Équipe 7"
+          }
+        },
+        {
+          "name": "Kakashi Hatake",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Jônin → Hokage",
+            "clan": "Hatake",
+            "equipe": "Leader Équipe 7"
+          }
+        },
+        {
+          "name": "Rock Lee",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Chûnin",
+            "clan": "Aucun",
+            "equipe": "Équipe Gaï"
+          }
+        },
+        {
+          "name": "Neji Hyûga",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Jônin",
+            "clan": "Hyûga",
+            "equipe": "Équipe Gaï"
+          }
+        },
+        {
+          "name": "Tenten",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Chûnin",
+            "clan": "Aucun",
+            "equipe": "Équipe Gaï"
+          }
+        },
+        {
+          "name": "Shikamaru Nara",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Chûnin",
+            "clan": "Nara",
+            "equipe": "Équipe 10"
+          }
+        },
+        {
+          "name": "Ino Yamanaka",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Chûnin",
+            "clan": "Yamanaka",
+            "equipe": "Équipe 10"
+          }
+        },
+        {
+          "name": "Chôji Akimichi",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Chûnin",
+            "clan": "Akimichi",
+            "equipe": "Équipe 10"
+          }
+        },
+        {
+          "name": "Hinata Hyûga",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Chûnin",
+            "clan": "Hyûga",
+            "equipe": "Équipe 8"
+          }
+        },
+        {
+          "name": "Kiba Inuzuka",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Chûnin",
+            "clan": "Inuzuka",
+            "equipe": "Équipe 8"
+          }
+        },
+        {
+          "name": "Shino Aburame",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Chûnin",
+            "clan": "Aburame",
+            "equipe": "Équipe 8"
+          }
+        },
+        {
+          "name": "Gaara",
+          "metadata": {
+            "village": "Suna",
+            "rang": "Genin → Kazekage",
+            "clan": "Aucun",
+            "equipe": "Fratrie du Sable"
+          }
+        },
+        {
+          "name": "Temari",
+          "metadata": {
+            "village": "Suna",
+            "rang": "Genin → Jônin",
+            "clan": "Aucun",
+            "equipe": "Fratrie du Sable"
+          }
+        },
+        {
+          "name": "Kankurô",
+          "metadata": {
+            "village": "Suna",
+            "rang": "Genin → Jônin",
+            "clan": "Aucun",
+            "equipe": "Fratrie du Sable"
+          }
+        },
+        {
+          "name": "Jiraya",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Sannin",
+            "clan": "Aucun",
+            "equipe": "Sannin Légendaires"
+          }
+        },
+        {
+          "name": "Tsunade",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Sannin → Hokage",
+            "clan": "Senju",
+            "equipe": "Sannin Légendaires"
+          }
+        },
+        {
+          "name": "Orochimaru",
+          "metadata": {
+            "village": "Konoha → Oto",
+            "rang": "Sannin",
+            "clan": "Aucun",
+            "equipe": "Sannin Légendaires"
+          }
+        },
+        {
+          "name": "Itachi Uchiwa",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "ANBU → Nukenin",
+            "clan": "Uchiwa",
+            "equipe": "Akatsuki"
+          }
+        },
+        {
+          "name": "Kisame Hoshigaki",
+          "metadata": {
+            "village": "Kiri",
+            "rang": "Nukenin",
+            "clan": "Hoshigaki",
+            "equipe": "Akatsuki"
+          }
+        },
+        {
+          "name": "Pain (Nagato)",
+          "metadata": {
+            "village": "Ame",
+            "rang": "Leader",
+            "clan": "Uzumaki",
+            "equipe": "Akatsuki"
+          }
+        },
+        {
+          "name": "Konan",
+          "metadata": {
+            "village": "Ame",
+            "rang": "Nukenin",
+            "clan": "Aucun",
+            "equipe": "Akatsuki"
+          }
+        },
+        {
+          "name": "Deidara",
+          "metadata": {
+            "village": "Iwa",
+            "rang": "Nukenin",
+            "clan": "Aucun",
+            "equipe": "Akatsuki"
+          }
+        },
+        {
+          "name": "Sasori",
+          "metadata": {
+            "village": "Suna",
+            "rang": "Nukenin",
+            "clan": "Aucun",
+            "equipe": "Akatsuki"
+          }
+        },
+        {
+          "name": "Hidan",
+          "metadata": {
+            "village": "Yu",
+            "rang": "Nukenin",
+            "clan": "Aucun",
+            "equipe": "Akatsuki"
+          }
+        },
+        {
+          "name": "Kakuzu",
+          "metadata": {
+            "village": "Taki",
+            "rang": "Nukenin",
+            "clan": "Aucun",
+            "equipe": "Akatsuki"
+          }
+        },
+        {
+          "name": "Madara Uchiwa",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Fondateur",
+            "clan": "Uchiwa",
+            "equipe": "Aucune"
+          }
+        },
+        {
+          "name": "Obito Uchiwa",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Chûnin → Nukenin",
+            "clan": "Uchiwa",
+            "equipe": "Équipe Minato"
+          }
+        },
+        {
+          "name": "Minato Namikaze",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Jônin → Hokage",
+            "clan": "Namikaze",
+            "equipe": "Leader"
+          }
+        },
+        {
+          "name": "Kushina Uzumaki",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Chûnin",
+            "clan": "Uzumaki",
+            "equipe": "Aucune"
+          }
+        },
+        {
+          "name": "Hiruzen Sarutobi",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Hokage",
+            "clan": "Sarutobi",
+            "equipe": "Leader"
+          }
+        },
+        {
+          "name": "Tobirama Senju",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Hokage",
+            "clan": "Senju",
+            "equipe": "Fondateur"
+          }
+        },
+        {
+          "name": "Hashirama Senju",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Hokage",
+            "clan": "Senju",
+            "equipe": "Fondateur"
+          }
+        },
+        {
+          "name": "Zabuza Momochi",
+          "metadata": {
+            "village": "Kiri",
+            "rang": "Jônin → Nukenin",
+            "clan": "Momochi",
+            "equipe": "Aucune"
+          }
+        },
+        {
+          "name": "Haku",
+          "metadata": {
+            "village": "Kiri",
+            "rang": "Nukenin",
+            "clan": "Yuki",
+            "equipe": "Zabuza"
+          }
+        },
+        {
+          "name": "Killer B",
+          "metadata": {
+            "village": "Kumo",
+            "rang": "Jônin",
+            "clan": "Aucun",
+            "equipe": "Jinchûriki"
+          }
+        },
+        {
+          "name": "Yamato",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "ANBU → Jônin",
+            "clan": "Aucun",
+            "equipe": "Équipe Kakashi"
+          }
+        },
+        {
+          "name": "Saï",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "ANBU → Chûnin",
+            "clan": "Aucun",
+            "equipe": "Équipe 7"
+          }
+        },
+        {
+          "name": "Kabuto Yakushi",
+          "metadata": {
+            "village": "Konoha → Oto",
+            "rang": "Genin → Nukenin",
+            "clan": "Aucun",
+            "equipe": "Orochimaru"
+          }
+        },
+        {
+          "name": "Konohamaru Sarutobi",
+          "metadata": {
+            "village": "Konoha",
+            "rang": "Genin → Jônin",
+            "clan": "Sarutobi",
+            "equipe": "Équipe Konohamaru"
+          }
+        }
+      ]
+    }
+  ]
+}
+
