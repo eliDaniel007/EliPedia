@@ -85,6 +85,21 @@
         .game-input { width: 100%; padding: 20px; border: 3px solid #667eea; border-radius: 10px; font-size: 1.5em; text-align: center; }
         .found-words { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
         .found-word { background: #48bb78; color: white; padding: 8px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+        
+        /* Filter buttons */
+        .filter-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
 
         /* Duel UI */
         .mode-selection { 
@@ -438,6 +453,8 @@
             categories: [],
             allLists: [],
             listData: null,
+            filters: {},
+            activeFilters: {},
             items: [], // Liste normalisée
             game: {
                 type: null, // 'solo' | 'duel_ai' | 'duel_friend'
@@ -1113,14 +1130,93 @@
             listDetails.style.display = 'block';
             document.getElementById('categories').style.display = 'none';
             
+            // Extraire les filtres uniques depuis les métadonnées
+            const filters = extractFilters(list.items);
+            appState.listData = list;
+            appState.filters = filters;
+            appState.activeFilters = {};
+            
+            renderListWithFilters(list, filters, {});
+        }
+
+        function extractFilters(items) {
+            const filters = {};
+            items.forEach(item => {
+                if (item.metadata) {
+                    Object.entries(item.metadata).forEach(([key, value]) => {
+                        if (!filters[key]) filters[key] = new Set();
+                        filters[key].add(value);
+                    });
+                }
+            });
+            // Convertir Sets en Arrays
+            Object.keys(filters).forEach(key => {
+                filters[key] = Array.from(filters[key]).sort();
+            });
+            return filters;
+        }
+
+        function renderListWithFilters(list, filters, activeFilters) {
+            const listDetails = document.getElementById('list-details');
+            
+            // Filtrer les items selon les filtres actifs
+            let filteredItems = list.items;
+            if (Object.keys(activeFilters).length > 0) {
+                filteredItems = list.items.filter(item => {
+                    return Object.entries(activeFilters).every(([key, value]) => {
+                        return item.metadata && item.metadata[key] === value;
+                    });
+                });
+            }
+            
+            // Générer les boutons de filtre
+            const filterButtonsHTML = Object.keys(filters).length > 0 ? `
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 15px; margin-bottom: 25px;">
+                    ${Object.entries(filters).map(([filterKey, filterValues]) => `
+                        <div style="margin-bottom: 15px;">
+                            <div style="font-weight: bold; color: #2d3748; margin-bottom: 10px; text-transform: capitalize;">
+                                ${filterKey === 'village' ? '🏘️ Village' : filterKey === 'rang' ? '⭐ Rang' : filterKey === 'clan' ? '👥 Clan' : filterKey}
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <button class="filter-btn ${!activeFilters[filterKey] ? 'active' : ''}" 
+                                        onclick="clearFilter('${filterKey}')" 
+                                        style="background: ${!activeFilters[filterKey] ? '#667eea' : '#e2e8f0'}; 
+                                               color: ${!activeFilters[filterKey] ? 'white' : '#4a5568'};">
+                                    Tous
+                                </button>
+                                ${filterValues.map(val => `
+                                    <button class="filter-btn ${activeFilters[filterKey] === val ? 'active' : ''}" 
+                                            onclick="setFilter('${filterKey}', '${val}')"
+                                            style="background: ${activeFilters[filterKey] === val ? '#667eea' : '#e2e8f0'}; 
+                                                   color: ${activeFilters[filterKey] === val ? 'white' : '#4a5568'};">
+                                        ${val}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                    ${Object.keys(activeFilters).length > 0 ? `
+                        <button onclick="clearAllFilters()" style="margin-top: 15px; background: #f56565; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                            🗑️ Effacer tous les filtres
+                        </button>
+                    ` : ''}
+                </div>
+            ` : '';
+            
             listDetails.innerHTML = `
                 <div style="text-align: center; margin-bottom: 30px;">
-                    <span class="badge" style="margin-bottom: 10px;">Géographie</span>
+                    <span class="badge" style="margin-bottom: 10px;">
+                        ${list.category_name || (list.name.includes('Afrique') ? 'Géographie' : 'Animés')}
+                    </span>
                     <h2>${list.name}</h2>
                     <p style="color: #666;">${list.description || ''}</p>
+                    <p style="color: #667eea; font-weight: bold; margin-top: 10px;">
+                        ${filteredItems.length} ${filteredItems.length > 1 ? 'résultats' : 'résultat'}
+                    </p>
                 </div>
+                ${filterButtonsHTML}
                 <div class="items-grid">
-                    ${list.items.map(item => `
+                    ${filteredItems.map(item => `
                         <div class="item-card">
                             <h3>${item.name}</h3>
                             ${item.metadata && Object.keys(item.metadata).length > 0 ? 
@@ -1129,6 +1225,21 @@
                     `).join('')}
                 </div>
             `;
+        }
+
+        function setFilter(key, value) {
+            appState.activeFilters[key] = value;
+            renderListWithFilters(appState.listData, appState.filters, appState.activeFilters);
+        }
+
+        function clearFilter(key) {
+            delete appState.activeFilters[key];
+            renderListWithFilters(appState.listData, appState.filters, appState.activeFilters);
+        }
+
+        function clearAllFilters() {
+            appState.activeFilters = {};
+            renderListWithFilters(appState.listData, appState.filters, appState.activeFilters);
         }
 
         // --- RECHERCHE ---
