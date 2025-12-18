@@ -786,8 +786,53 @@
             appState.game.timeLeft = 60;
             appState.game.isPlaying = true;
             
-            setupInputListener();
-            startTimer();
+            // Si c'est l'IA qui joue, simuler automatiquement
+            if (player === 'ai') {
+                document.getElementById('game-input').style.display = 'none';
+                document.getElementById('game-input').parentElement.innerHTML = 
+                    '<p style="text-align:center;color:#667eea;font-size:1.2em;font-weight:600;">L\'IA joue automatiquement...</p>';
+                startTimer();
+                simulateAIPlay(target);
+            } else {
+                setupInputListener();
+                startTimer();
+            }
+        }
+        
+        // Simuler le jeu de l'IA
+        function simulateAIPlay(target) {
+            const difficulty = appState.game.difficulty;
+            let successRate = 0.5; // 50% par défaut
+            
+            if (difficulty === 'easy') successRate = 0.4;      // 40% de chance de succès
+            if (difficulty === 'medium') successRate = 0.6;    // 60%
+            if (difficulty === 'hard') successRate = 0.8;      // 80%
+            
+            // Simuler une vitesse de frappe (2-4 secondes par pays)
+            const interval = setInterval(() => {
+                if (!appState.game.isPlaying) {
+                    clearInterval(interval);
+                    return;
+                }
+                
+                // L'IA essaie de trouver un pays
+                const remainingItems = appState.items.filter(item => 
+                    ![...appState.game.found].some(f => f.toLowerCase() === item.toLowerCase())
+                );
+                
+                if (remainingItems.length > 0 && Math.random() < successRate) {
+                    const randomItem = remainingItems[Math.floor(Math.random() * remainingItems.length)];
+                    appState.game.found.add(randomItem);
+                    addFoundWord(randomItem);
+                    document.getElementById('score').textContent = appState.game.found.size;
+                    
+                    // Victoire ?
+                    if (appState.game.found.size >= appState.game.target) {
+                        clearInterval(interval);
+                        gameOver(true);
+                    }
+                }
+            }, 2000 + Math.random() * 2000); // Entre 2 et 4 secondes
         }
 
         function startTimer() {
