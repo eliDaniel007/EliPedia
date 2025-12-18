@@ -335,6 +335,14 @@
                     </div>
                 </div>
 
+                <div id="theme-selector" style="text-align: center; margin-top: 35px;">
+                    <h3 style="color: #2d3748; margin-bottom: 20px; font-size: 1.3em; font-weight: 600;">📚 Choisissez le thème</h3>
+                    <div class="difficulty-selector">
+                        <div class="diff-btn active" onclick="setTheme('pays')">🌍 Pays d'Afrique</div>
+                        <div class="diff-btn" onclick="setTheme('capitales')">🏛️ Capitales</div>
+                    </div>
+                </div>
+
                 <button class="start-game-btn" onclick="initGameSession()" style="
                     margin-top: 50px; 
                     font-size: 1.4em; 
@@ -399,7 +407,7 @@
                 <div class="timer-bar"><div class="timer-fill" id="timer-fill"></div></div>
 
                 <div class="game-input-area">
-                    <input type="text" class="game-input" id="game-input" placeholder="Tapez un pays..." autocomplete="off">
+                    <input type="text" class="game-input" id="game-input" placeholder="Tapez votre réponse..." autocomplete="off">
                 </div>
 
                 <div class="found-words" id="found-words"></div>
@@ -418,6 +426,7 @@
             items: [], // Liste normalisée des pays
             game: {
                 type: null, // 'solo' | 'duel_ai' | 'duel_friend'
+                theme: 'pays', // 'pays' | 'capitales'
                 difficulty: 'easy',
                 playerCount: 2,
                 players: [], // ['p1', 'p2', 'p3', ...]
@@ -599,11 +608,28 @@
             event.target.classList.add('active');
         }
 
+        function setTheme(theme) {
+            appState.game.theme = theme;
+            document.querySelectorAll('#theme-selector .diff-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
         function initGameSession() {
             appState.game.type = selectedGameMode;
             appState.game.found = new Set();
             appState.game.timeLeft = 60;
             appState.game.isPlaying = false;
+
+            // Préparer les items selon le thème choisi
+            if (appState.game.theme === 'capitales') {
+                // Extraire les capitales depuis les métadonnées
+                appState.items = appState.listData.items
+                    .map(item => item.metadata?.capital)
+                    .filter(cap => cap); // Enlever les valeurs vides
+            } else {
+                // Pays par défaut
+                appState.items = appState.listData.items.map(i => i.name);
+            }
 
             // Configuration des joueurs
             if (selectedGameMode === 'duel_friend') {
@@ -626,10 +652,13 @@
         // --- MODE SOLO ---
         function startSoloGame() {
             document.getElementById('game-area').style.display = 'block';
+            const themeName = appState.game.theme === 'capitales' ? 'capitales' : 'pays';
+            const themeIcon = appState.game.theme === 'capitales' ? '🏛️' : '🌍';
+            
             document.getElementById('game-player-name').textContent = "Mode Solo";
-            document.getElementById('game-objective').innerHTML = "Trouvez les 54 pays ! (Pas de limite de temps)";
+            document.getElementById('game-objective').innerHTML = `Trouvez les 54 ${themeName} ${themeIcon} (Pas de limite de temps)`;
             document.getElementById('timer').parentElement.style.display = 'none'; // Pas de timer en solo classique
-            document.getElementById('target-score').textContent = "54";
+            document.getElementById('target-score').textContent = appState.items.length;
             
             setupInputListener();
         }
@@ -643,8 +672,11 @@
             appState.game.turnIndex = 0;
             appState.game.foldedPlayers = new Set(); // Joueurs qui se sont couchés
             
+            const themeName = appState.game.theme === 'capitales' ? 'capitales' : 'pays';
+            const themeIcon = appState.game.theme === 'capitales' ? '🏛️' : '🌍';
+            
             updateAuctionUI();
-            logAuction("🎲 Le duel commence ! Qui dit mieux ?");
+            logAuction(`${themeIcon} Le duel commence sur les ${themeName} ! Qui dit mieux ?`);
         }
 
         function updateAuctionUI() {
@@ -673,8 +705,11 @@
 
         function placeBid(amount) {
             const newBid = appState.game.currentBid + amount;
-            if (newBid > 54) {
-                alert("Il n'y a que 54 pays !");
+            const maxItems = appState.items.length;
+            const themeName = appState.game.theme === 'capitales' ? 'capitales' : 'pays';
+            
+            if (newBid > maxItems) {
+                alert(`Il n'y a que ${maxItems} ${themeName} !`);
                 return;
             }
             
@@ -682,7 +717,7 @@
             appState.game.bidHolder = appState.game.turn;
             
             const playerLabel = getPlayerLabel(appState.game.turn);
-            logAuction(`${playerLabel} monte à ${newBid} pays !`, 'player');
+            logAuction(`${playerLabel} monte à ${newBid} ${themeName} !`, 'player');
 
             // Passer la main
             switchTurn();
@@ -778,9 +813,12 @@
             document.getElementById('game-area').style.display = 'block';
             document.getElementById('timer').parentElement.style.display = 'block';
             
+            const themeName = appState.game.theme === 'capitales' ? 'capitales' : 'pays';
+            const themeIcon = appState.game.theme === 'capitales' ? '🏛️' : '🌍';
+            
             const playerLabel = getPlayerLabel(player);
             document.getElementById('game-player-name').textContent = `${playerLabel} joue !`;
-            document.getElementById('game-objective').innerHTML = `Objectif : <span style="color:#e53e3e;font-weight:bold">${target}</span> pays en 60s`;
+            document.getElementById('game-objective').innerHTML = `Objectif : <span style="color:#e53e3e;font-weight:bold">${target}</span> ${themeName} ${themeIcon} en 60s`;
             
             appState.game.target = target;
             appState.game.timeLeft = 60;
