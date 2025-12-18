@@ -160,6 +160,12 @@ async function seedDatabase() {
     // Commencer une transaction
     await client.query('BEGIN');
 
+    // Nettoyer la base de données (TRUNCATE)
+    console.log('🧹 Nettoyage de la base de données...');
+    await client.query('TRUNCATE TABLE item, list, category RESTART IDENTITY CASCADE');
+    console.log('✅ Base de données vidée');
+    console.log('');
+
     // Lire tous les fichiers JSON dans /data
     const files = fs.readdirSync(dataDir).filter(file => file.endsWith('.json'));
 
@@ -219,9 +225,13 @@ async function seedDatabase() {
     console.log('🎉 ====================================');
     console.log('');
     console.log(`📊 Statistiques:`);
-    console.log(`   - Catégories: ${totalCategories}`);
-    console.log(`   - Listes: ${totalLists}`);
-    console.log(`   - Items: ${totalItems}`);
+    const countCat = await client.query('SELECT COUNT(*) FROM category');
+    const countList = await client.query('SELECT COUNT(*) FROM list');
+    const countItem = await client.query('SELECT COUNT(*) FROM item');
+    
+    console.log(`   - Catégories: ${countCat.rows[0].count}`);
+    console.log(`   - Listes: ${countList.rows[0].count}`);
+    console.log(`   - Items: ${countItem.rows[0].count}`);
     console.log('');
 
   } catch (error) {
